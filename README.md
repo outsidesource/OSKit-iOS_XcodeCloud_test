@@ -1,2 +1,2 @@
-# OSKit-iOS
-OSKit iOS
+# OSKit
+Outside Source OSKit iOS Swift Framework
