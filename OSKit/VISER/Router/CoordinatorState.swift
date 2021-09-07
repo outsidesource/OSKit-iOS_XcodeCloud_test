@@ -8,7 +8,6 @@
 
 public protocol ICoordinatorState: IIdentifiableState {
     var routes: [IRoute] { get set }
-    //var triggerRouteAction: SingleAction<CoordinatorAction.TriggerRoute, IRoute>? { get }
 }
 
 /// A reusuable concerte ICoordinatorState
@@ -18,7 +17,6 @@ public struct CoordinatorState: ICoordinatorState {
     
     public let id: String
     public var routes: [IRoute] = []
-    //public var triggerRouteAction: SingleAction<CoordinatorAction.TriggerRoute, IRoute>?
     
     public init(_ id: String = UUID().uuidString) {
         self.id = id
