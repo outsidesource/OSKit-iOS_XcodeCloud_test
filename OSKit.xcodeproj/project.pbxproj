@@ -21,6 +21,7 @@
 		1B366DF726F1012700A4A13C /* SwiftUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */; };
 		1B366DF826F1012700A4A13C /* SwiftUICoordinatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */; };
 		1B366DF926F1012700A4A13C /* CoordinatorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */; };
+		1B366DFC26F1025F00A4A13C /* CombineReSwiftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DFB26F1025F00A4A13C /* CombineReSwiftStore.swift */; };
 		1B41C96926E7E01C003D800C /* RxCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */; };
 		1B574F9A266FF290002AB349 /* TimeInterval+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F87266FF290002AB349 /* TimeInterval+OS.swift */; };
 		1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F88266FF290002AB349 /* IStringIdentifiable.swift */; };
@@ -192,6 +193,7 @@
 		1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUICoordinator.swift; sourceTree = "<group>"; };
 		1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUICoordinatorTransition.swift; sourceTree = "<group>"; };
 		1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModifier.swift; sourceTree = "<group>"; };
+		1B366DFB26F1025F00A4A13C /* CombineReSwiftStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineReSwiftStore.swift; sourceTree = "<group>"; };
 		1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorReducer.swift; sourceTree = "<group>"; };
 		1B574F87266FF290002AB349 /* TimeInterval+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+OS.swift"; sourceTree = "<group>"; };
 		1B574F88266FF290002AB349 /* IStringIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStringIdentifiable.swift; sourceTree = "<group>"; };
@@ -407,6 +409,14 @@
 				1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		1B366DFA26F1025F00A4A13C /* ReSwift-Combine */ = {
+			isa = PBXGroup;
+			children = (
+				1B366DFB26F1025F00A4A13C /* CombineReSwiftStore.swift */,
+			);
+			path = "ReSwift-Combine";
 			sourceTree = "<group>";
 		};
 		1B574F86266FF290002AB349 /* Foundation */ = {
@@ -777,6 +787,7 @@
 				1B574FF0266FF505002AB349 /* Resolver */,
 				1B57500C266FF5CC002AB349 /* ReSwift */,
 				1B0088B226712F5900906690 /* RxReSwift */,
+				1B366DFA26F1025F00A4A13C /* ReSwift-Combine */,
 				1B575023266FF70F002AB349 /* RxBluetoothKit */,
 				1B8B6987236093EA00531F38 /* RxXCoordinator */,
 				1B57503E266FF79F002AB349 /* Swift */,
@@ -1053,6 +1064,7 @@
 				1B575093266FF81E002AB349 /* UIButton+OS.swift in Sources */,
 				1B575031266FF70F002AB349 /* ScannedPeripheral+OS.swift in Sources */,
 				1B5750EA266FF8B2002AB349 /* CoordinatorReducer.swift in Sources */,
+				1B366DFC26F1025F00A4A13C /* CombineReSwiftStore.swift in Sources */,
 				1B5750E5266FF8B2002AB349 /* IAction.swift in Sources */,
 				1B574FC5266FF34C002AB349 /* OSDeviceInformation.swift in Sources */,
 				1B574FA1266FF290002AB349 /* String+OS.swift in Sources */,

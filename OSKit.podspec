@@ -221,6 +221,12 @@ Pod::Spec.new do |s|
     rxreswift.dependency "OSKit/RxVISER"
   end
   
+  s.subspec "VISER-ReSwift-Combine" do |viserreswiftcombine|
+    viserreswiftcombine.source_files = "OSKit/ReSwift-Combine/*.{h,m}", "OSKit/ReSwift-Combine/*.{swift}"
+    viserreswiftcombine.dependency "OSKit/VISER-ReSwift"
+    viserreswiftcombine.dependency "OSKit/VISER-Combine"
+  end
+  
   s.subspec "RxVISER-RxXCoordinator" do |xcoordinator|
     xcoordinator.source_files = "OSKit/RxXCoordinator/*.{h,m}", "OSKit/RxXCoordinator/*.{swift}"
     xcoordinator.dependency "OSKit/RxVISER"
