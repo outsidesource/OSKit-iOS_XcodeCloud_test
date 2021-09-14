@@ -1,21 +1,20 @@
 //
-//  VISERViewController.swift
+//  VISERTableViewController.swift
 //  OSKit
 //
-//  Created by Brody Robertson.
-//  Copyright © 2020 Outside Source. All rights reserved.
+//  Created by Brody Robertson on 9/14/21.
+//  Copyright © 2021 Outside Source. All rights reserved.
 //
 
 import UIKit
 import Resolver
 
-open class VISERViewController<S: IState, V: IViewDelegate>: OSViewController {
+open class VISERTableViewController<S: IState, V: IViewDelegate>: OSTableViewController {
  
     public let id: String = UUID().uuidString
     
     public lazy var viewDelegate: V = Resolver.root.resolve(V.self, args: self.id)
     public lazy var statePresenter: StatePresenter<S> = Resolver.root.resolve(args: self.id)
-    public lazy var rxStatePresenter: RxStatePresenter<S> = Resolver.root.resolve(args: self.id)
     
     override open func viewDidLoad() {
         super.viewDidLoad()

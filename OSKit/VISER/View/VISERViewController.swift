@@ -1,5 +1,5 @@
 //
-//  VISERTableViewController.swift
+//  VISERViewController.swift
 //  OSKit
 //
 //  Created by Brody Robertson.
@@ -8,17 +8,13 @@
 
 import UIKit
 import Resolver
-import RxSwift
 
-open class VISERTableViewController<S: IState, V: IViewDelegate>: OSTableViewController {
+open class VISERViewController<S: IState, V: IViewDelegate>: OSViewController {
  
     public let id: String = UUID().uuidString
     
     public lazy var viewDelegate: V = Resolver.root.resolve(V.self, args: self.id)
     public lazy var statePresenter: StatePresenter<S> = Resolver.root.resolve(args: self.id)
-    public lazy var rxStatePresenter: RxStatePresenter<S> = Resolver.root.resolve(args: self.id)
-    
-    public let disposeBag = DisposeBag()
     
     override open func viewDidLoad() {
         super.viewDidLoad()

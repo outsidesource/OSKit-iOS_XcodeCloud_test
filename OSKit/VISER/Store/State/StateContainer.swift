@@ -43,20 +43,3 @@ public struct StateContext: IStringIdentifiable {
     }
     
 }
-
-/// Attempt at generic IStateContext
-//public protocol IStateContext: StringIdentifiable {
-//
-//    associatedtype S: IIdentifiableState
-//
-//    var state: S { get set }
-//    typealias Reduce = (_ action: IAction, _ state: S?) -> S
-//    var reduce: Reduce { get set }
-//
-//}
-//
-//extension IStateContext {
-//    public var id: String {
-//        return state.id
-//    }
-//}

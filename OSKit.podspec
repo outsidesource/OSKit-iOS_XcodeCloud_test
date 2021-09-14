@@ -168,6 +168,11 @@ Pod::Spec.new do |s|
     rxuikit.dependency "RxSwiftExt", "~> 5.2.0"
   end
   
+  s.subspec "SwiftUI" do |swiftui|
+    swiftui.source_files = "OSKit/SwiftUI/*.{h,m}", "OSKit/SwiftUI/*.{swift}"
+    swiftui.framework  = "SwiftUI"
+  end
+  
   s.subspec "UserNotifications" do |usernotifications|
     usernotifications.source_files = "OSKit/UserNotifications/*.{h,m}", "OSKit/UserNotifications/*.{swift}"
     usernotifications.dependency "OSKit/Core"
@@ -183,10 +188,16 @@ Pod::Spec.new do |s|
     viser.dependency "OSKit/Build-Resolver"
   end
   
-  s.subspec "VISER-ReSwift" do |reswift|
-    reswift.source_files = "OSKit/ReSwift/*.{h,m}", "OSKit/ReSwift/*.{swift}"
-    reswift.dependency "OSKit/VISER"
-    reswift.dependency "ReSwift", "~> 6.0.0"
+  s.subspec "VISER-Combine" do |visercombine|
+    visercombine.source_files = "OSKit/VISER-Combine/*.{h,m}", "OSKit/VISER-Combine/*.{swift}"
+    visercombine.dependency "OSKit/VISER"
+    visercombine.framework = "Combine"
+  end
+  
+  s.subspec "VISER-SwiftUI" do |viserswiftui|
+    viserswiftui.source_files = "OSKit/VISER-SwiftUI/*.{h,m}", "OSKit/VISER-SwiftUI/*.{swift}"
+    viserswiftui.dependency "OSKit/SwiftUI"
+    viserswiftui.dependency "OSKit/VISER-Combine"
   end
   
   s.subspec "RxVISER" do |rxviser|
@@ -198,10 +209,22 @@ Pod::Spec.new do |s|
     rxviser.dependency "RxDataSources", "~> 4.0.1"
   end
   
+  s.subspec "VISER-ReSwift" do |reswift|
+    reswift.source_files = "OSKit/ReSwift/*.{h,m}", "OSKit/ReSwift/*.{swift}"
+    reswift.dependency "OSKit/VISER"
+    reswift.dependency "ReSwift", "~> 6.0.0"
+  end
+  
   s.subspec "RxVISER-RxReSwift" do |rxreswift|
     rxreswift.source_files = "OSKit/RxReSwift/*.{h,m}", "OSKit/RxReSwift/*.{swift}"
     rxreswift.dependency "OSKit/VISER-ReSwift"
     rxreswift.dependency "OSKit/RxVISER"
+  end
+  
+  s.subspec "VISER-ReSwift-Combine" do |viserreswiftcombine|
+    viserreswiftcombine.source_files = "OSKit/ReSwift-Combine/*.{h,m}", "OSKit/ReSwift-Combine/*.{swift}"
+    viserreswiftcombine.dependency "OSKit/VISER-ReSwift"
+    viserreswiftcombine.dependency "OSKit/VISER-Combine"
   end
   
   s.subspec "RxVISER-RxXCoordinator" do |xcoordinator|

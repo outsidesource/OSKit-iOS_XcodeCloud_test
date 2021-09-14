@@ -6,18 +6,20 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-open class CoordinatorReducer<S: ICoordinatorState>: IIdentifiableReducer {
+open class CoordinatorReducer: IIdentifiableReducer {
     
     open class func reduce(_ action: IAction, _ state: IIdentifiableState) -> IIdentifiableState {
         
-        /// This check is required since our reduce signature is abstract to operate with StateContext
-        guard let coordinatorState = state as? S else {
+        guard let coordinatorState = state as? ICoordinatorState else {
             return state
         }
         
         switch action {
         
-        case let action as SingleAction<CoordinatorAction.TriggerRoute, IRoute>:
+        case let action as CoordinatorAction.QueueRoute:
+            return reduceQueueRouteAction(action, coordinatorState)
+            
+        case let action as CoordinatorAction.TriggerRoute:
             return reduceTriggerRouteAction(action, coordinatorState)
             
         default:
@@ -29,23 +31,27 @@ open class CoordinatorReducer<S: ICoordinatorState>: IIdentifiableReducer {
         
     }
     
-    private class func reduceTriggerRouteAction(_ action: SingleAction<CoordinatorAction.TriggerRoute, IRoute>, _ state: ICoordinatorState) -> ICoordinatorState {
-
-        var state = state
-        //state.triggerRouteAction = action
+    private class func reduceQueueRouteAction(_ action: CoordinatorAction.QueueRoute, _ state: ICoordinatorState) -> ICoordinatorState {
         
-        switch action {
-            
-        case .success(_, let route):
-            
-            if let index = state.routes.firstIndex(where: { nextRoute in
-                return route.id == nextRoute.id
-            }) {
-                state.routes.remove(at: index)
-            }
-            
-        default:
-            break
+        var state = state
+        
+        guard let route = action.route else {
+            return state
+        }
+        
+        state.routes.append(route)
+        
+        return state
+        
+    }
+    
+    private class func reduceTriggerRouteAction(_ action: CoordinatorAction.TriggerRoute, _ state: ICoordinatorState) -> ICoordinatorState {
+        
+        var state = state
+        if let index = state.routes.firstIndex(where: { nextRoute in
+            return action.route?.id == nextRoute.id
+        }) {
+            state.routes.remove(at: index)
         }
         
         return state
