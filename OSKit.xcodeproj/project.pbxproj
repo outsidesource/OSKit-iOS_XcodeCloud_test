@@ -10,6 +10,8 @@
 		1B0087A9266FFEDC00906690 /* VISERNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087A8266FFEDC00906690 /* VISERNavigationCoordinator.swift */; };
 		1B0087B1266FFF3C00906690 /* IRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087B0266FFF3C00906690 /* IRoute.swift */; };
 		1B366DD226F0F0A200A4A13C /* RxVISERInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */; };
+		1B366DD426F0F29200A4A13C /* RxVISERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD326F0F29200A4A13C /* RxVISERViewController.swift */; };
+		1B366DD726F0F48A00A4A13C /* VISERTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */; };
 		1B41C96926E7E01C003D800C /* RxCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */; };
 		1B574F9A266FF290002AB349 /* TimeInterval+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F87266FF290002AB349 /* TimeInterval+OS.swift */; };
 		1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F88266FF290002AB349 /* IStringIdentifiable.swift */; };
@@ -107,7 +109,7 @@
 		1B5750AA266FF87B002AB349 /* UNNotificationAttachment+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750A8266FF87B002AB349 /* UNNotificationAttachment+OS.swift */; };
 		1B5750AB266FF87B002AB349 /* UNNotificationSound+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750A9266FF87B002AB349 /* UNNotificationSound+OS.swift */; };
 		1B5750D4266FF8B2002AB349 /* ITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750B2266FF8B2002AB349 /* ITableViewDelegate.swift */; };
-		1B5750D5266FF8B2002AB349 /* VISERTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750B3266FF8B2002AB349 /* VISERTableViewController.swift */; };
+		1B5750D5266FF8B2002AB349 /* RxVISERTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750B3266FF8B2002AB349 /* RxVISERTableViewController.swift */; };
 		1B5750D6266FF8B2002AB349 /* IViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750B4266FF8B2002AB349 /* IViewDelegate.swift */; };
 		1B5750D7266FF8B2002AB349 /* VISERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750B5266FF8B2002AB349 /* VISERViewController.swift */; };
 		1B5750D8266FF8B2002AB349 /* IInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5750B7266FF8B2002AB349 /* IInteractor.swift */; };
@@ -170,6 +172,8 @@
 		1B0087B0266FFF3C00906690 /* IRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRoute.swift; sourceTree = "<group>"; };
 		1B08D3812319ACA400B6F0C0 /* CLRegion+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLRegion+OS.swift"; sourceTree = "<group>"; };
 		1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxVISERInteractor.swift; sourceTree = "<group>"; };
+		1B366DD326F0F29200A4A13C /* RxVISERViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxVISERViewController.swift; sourceTree = "<group>"; };
+		1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VISERTableViewController.swift; sourceTree = "<group>"; };
 		1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorReducer.swift; sourceTree = "<group>"; };
 		1B574F87266FF290002AB349 /* TimeInterval+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+OS.swift"; sourceTree = "<group>"; };
 		1B574F88266FF290002AB349 /* IStringIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStringIdentifiable.swift; sourceTree = "<group>"; };
@@ -267,7 +271,7 @@
 		1B5750A8266FF87B002AB349 /* UNNotificationAttachment+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNNotificationAttachment+OS.swift"; sourceTree = "<group>"; };
 		1B5750A9266FF87B002AB349 /* UNNotificationSound+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNNotificationSound+OS.swift"; sourceTree = "<group>"; };
 		1B5750B2266FF8B2002AB349 /* ITableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITableViewDelegate.swift; sourceTree = "<group>"; };
-		1B5750B3266FF8B2002AB349 /* VISERTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISERTableViewController.swift; sourceTree = "<group>"; };
+		1B5750B3266FF8B2002AB349 /* RxVISERTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxVISERTableViewController.swift; sourceTree = "<group>"; };
 		1B5750B4266FF8B2002AB349 /* IViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IViewDelegate.swift; sourceTree = "<group>"; };
 		1B5750B5266FF8B2002AB349 /* VISERViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISERViewController.swift; sourceTree = "<group>"; };
 		1B5750B7266FF8B2002AB349 /* IInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IInteractor.swift; sourceTree = "<group>"; };
@@ -347,6 +351,13 @@
 				1B575013266FF5CC002AB349 /* RxReSwiftStore.swift */,
 			);
 			path = RxReSwift;
+			sourceTree = "<group>";
+		};
+		1B366DD526F0F40500A4A13C /* VISER-UIKit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "VISER-UIKit";
 			sourceTree = "<group>";
 		};
 		1B574F86266FF290002AB349 /* Foundation */ = {
@@ -548,8 +559,10 @@
 		1B5750B1266FF8B2002AB349 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1B5750B5266FF8B2002AB349 /* VISERViewController.swift */,
 				1B5750B2266FF8B2002AB349 /* ITableViewDelegate.swift */,
 				1B5750B4266FF8B2002AB349 /* IViewDelegate.swift */,
+				1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -634,11 +647,11 @@
 				1B5750F5266FF8D9002AB349 /* ObservableType+IViewState.swift */,
 				1B5750F6266FF8D9002AB349 /* RxStatePresenter.swift */,
 				1B5750FA266FF8D9002AB349 /* RxStateStore.swift */,
-				1B5750B3266FF8B2002AB349 /* VISERTableViewController.swift */,
-				1B5750B5266FF8B2002AB349 /* VISERViewController.swift */,
+				1B5750B3266FF8B2002AB349 /* RxVISERTableViewController.swift */,
 				1B5750FC266FF8D9002AB349 /* TableViewAnimatedDataSource.swift */,
 				1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */,
 				1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */,
+				1B366DD326F0F29200A4A13C /* RxVISERViewController.swift */,
 			);
 			path = RxVISER;
 			sourceTree = "<group>";
@@ -700,6 +713,7 @@
 		1B9B87D821534DC4001075C9 /* OSKit */ = {
 			isa = PBXGroup;
 			children = (
+				1B366DD526F0F40500A4A13C /* VISER-UIKit */,
 				1B921FCB257F360A0036B5DA /* Alamofire */,
 				1B921FDA257F37B40036B5DA /* RxAlamofire */,
 				1B574FBA266FF329002AB349 /* AVFoundation */,
@@ -1001,6 +1015,7 @@
 				1B574FE6266FF4C2002AB349 /* OSConsoleLogger.swift in Sources */,
 				1B57507E266FF81E002AB349 /* UIAccessibilityTraits+OS.swift in Sources */,
 				1B5750A0266FF85B002AB349 /* OSTableViewController+Rx.swift in Sources */,
+				1B366DD426F0F29200A4A13C /* RxVISERViewController.swift in Sources */,
 				1B575088266FF81E002AB349 /* UIView+Inspectable.swift in Sources */,
 				1B922554257FDFC30036B5DA /* CLRegion+OS.swift in Sources */,
 				1B575050266FF79F002AB349 /* Comparable+OS.swift in Sources */,
@@ -1028,6 +1043,7 @@
 				1B5750DE266FF8B2002AB349 /* IState.swift in Sources */,
 				1B5750EF266FF8B2002AB349 /* CoordinatorState.swift in Sources */,
 				1B574FDA266FF4A5002AB349 /* IModuleAssembler.swift in Sources */,
+				1B366DD726F0F48A00A4A13C /* VISERTableViewController.swift in Sources */,
 				1B575085266FF81E002AB349 /* UIScrollView+OS.swift in Sources */,
 				1B5750D6266FF8B2002AB349 /* IViewDelegate.swift in Sources */,
 				1B57502F266FF70F002AB349 /* AdvertisementData+OS.swift in Sources */,
@@ -1039,7 +1055,7 @@
 				1B575015266FF5CC002AB349 /* StateContainerReducer+ReSwift.swift in Sources */,
 				1B574FCC266FF3A7002AB349 /* CGAffineTransform+OS.swift in Sources */,
 				1B57508D266FF81E002AB349 /* IViewController.swift in Sources */,
-				1B5750D5266FF8B2002AB349 /* VISERTableViewController.swift in Sources */,
+				1B5750D5266FF8B2002AB349 /* RxVISERTableViewController.swift in Sources */,
 				1B575097266FF81E002AB349 /* UITableViewHeaderFooterView+OS.swift in Sources */,
 				1B574FE7266FF4C2002AB349 /* ILogger.swift in Sources */,
 				1B575086266FF81E002AB349 /* OSLabel.swift in Sources */,

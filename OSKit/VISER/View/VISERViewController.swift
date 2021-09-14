@@ -9,14 +9,12 @@
 import UIKit
 import Resolver
 
-// FIXME: - RENAME RxVISERViewController
 open class VISERViewController<S: IState, V: IViewDelegate>: OSViewController {
  
     public let id: String = UUID().uuidString
     
     public lazy var viewDelegate: V = Resolver.root.resolve(V.self, args: self.id)
     public lazy var statePresenter: StatePresenter<S> = Resolver.root.resolve(args: self.id)
-    public lazy var rxStatePresenter: RxStatePresenter<S> = Resolver.root.resolve(args: self.id)
     
     override open func viewDidLoad() {
         super.viewDidLoad()
