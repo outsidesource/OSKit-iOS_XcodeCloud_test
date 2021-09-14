@@ -169,8 +169,8 @@ Pod::Spec.new do |s|
   end
   
   s.subspec "SwiftUI" do |swiftui|
-    switui.source_files = "OSKit/SwiftUI/*.{h,m}", "OSKit/SwiftUI/*.{swift}"
-    switui.framework  = "SwiftUI"
+    swiftui.source_files = "OSKit/SwiftUI/*.{h,m}", "OSKit/SwiftUI/*.{swift}"
+    swiftui.framework  = "SwiftUI"
   end
   
   s.subspec "UserNotifications" do |usernotifications|
