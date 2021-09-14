@@ -9,6 +9,7 @@
 import Resolver
 import RxSwift
 
+// FIXME: - RENAME RxVISERInteractor
 open class VISERInteractor<S: IState>: IInteractor {
     
     public let id: String

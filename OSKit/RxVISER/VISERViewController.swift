@@ -9,6 +9,7 @@
 import UIKit
 import Resolver
 
+// FIXME: - RENAME RxVISERViewController
 open class VISERViewController<S: IState, V: IViewDelegate>: OSViewController {
  
     public let id: String = UUID().uuidString

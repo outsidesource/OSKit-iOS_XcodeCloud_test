@@ -10,6 +10,7 @@ import UIKit
 import Resolver
 import RxSwift
 
+// FIXME: - RENAME RxVISERTableViewController
 open class VISERTableViewController<S: IState, V: IViewDelegate>: OSTableViewController {
  
     public let id: String = UUID().uuidString
