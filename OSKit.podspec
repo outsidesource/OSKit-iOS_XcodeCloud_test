@@ -188,10 +188,10 @@ Pod::Spec.new do |s|
     viser.dependency "OSKit/Build-Resolver"
   end
   
-  s.subspec "VISER-ReSwift" do |reswift|
-    reswift.source_files = "OSKit/ReSwift/*.{h,m}", "OSKit/ReSwift/*.{swift}"
-    reswift.dependency "OSKit/VISER"
-    reswift.dependency "ReSwift", "~> 6.0.0"
+  s.subspec "VISER-Combine" do |visercombine|
+    visercombine.source_files = "OSKit/VISER-Combine/**/*.{h,m}", "OSKit/VISER-Combine/**/*.{swift}"
+    visercombine.dependency "OSKit/VISER"
+    visercombine.framework = "Combine"
   end
   
   s.subspec "RxVISER" do |rxviser|
@@ -201,6 +201,12 @@ Pod::Spec.new do |s|
     rxviser.dependency "RxSwiftExt", "~> 5.2.0"
     rxviser.dependency "RxCocoa", "~> 5.1.1"
     rxviser.dependency "RxDataSources", "~> 4.0.1"
+  end
+  
+  s.subspec "VISER-ReSwift" do |reswift|
+    reswift.source_files = "OSKit/ReSwift/*.{h,m}", "OSKit/ReSwift/*.{swift}"
+    reswift.dependency "OSKit/VISER"
+    reswift.dependency "ReSwift", "~> 6.0.0"
   end
   
   s.subspec "RxVISER-RxReSwift" do |rxreswift|
