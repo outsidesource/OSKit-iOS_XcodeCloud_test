@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B0087A9266FFEDC00906690 /* VISERNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087A8266FFEDC00906690 /* VISERNavigationCoordinator.swift */; };
 		1B0087B1266FFF3C00906690 /* IRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087B0266FFF3C00906690 /* IRoute.swift */; };
+		1B366DD226F0F0A200A4A13C /* RxVISERInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */; };
 		1B41C96926E7E01C003D800C /* RxCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */; };
 		1B574F9A266FF290002AB349 /* TimeInterval+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F87266FF290002AB349 /* TimeInterval+OS.swift */; };
 		1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F88266FF290002AB349 /* IStringIdentifiable.swift */; };
@@ -168,6 +169,7 @@
 		1B0087A8266FFEDC00906690 /* VISERNavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISERNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1B0087B0266FFF3C00906690 /* IRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRoute.swift; sourceTree = "<group>"; };
 		1B08D3812319ACA400B6F0C0 /* CLRegion+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLRegion+OS.swift"; sourceTree = "<group>"; };
+		1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxVISERInteractor.swift; sourceTree = "<group>"; };
 		1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorReducer.swift; sourceTree = "<group>"; };
 		1B574F87266FF290002AB349 /* TimeInterval+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+OS.swift"; sourceTree = "<group>"; };
 		1B574F88266FF290002AB349 /* IStringIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStringIdentifiable.swift; sourceTree = "<group>"; };
@@ -555,6 +557,7 @@
 		1B5750B6266FF8B2002AB349 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				1B5750B8266FF8B2002AB349 /* VISERInteractor.swift */,
 				1B5750B7266FF8B2002AB349 /* IInteractor.swift */,
 			);
 			path = Interactor;
@@ -631,11 +634,11 @@
 				1B5750F5266FF8D9002AB349 /* ObservableType+IViewState.swift */,
 				1B5750F6266FF8D9002AB349 /* RxStatePresenter.swift */,
 				1B5750FA266FF8D9002AB349 /* RxStateStore.swift */,
-				1B5750B8266FF8B2002AB349 /* VISERInteractor.swift */,
 				1B5750B3266FF8B2002AB349 /* VISERTableViewController.swift */,
 				1B5750B5266FF8B2002AB349 /* VISERViewController.swift */,
 				1B5750FC266FF8D9002AB349 /* TableViewAnimatedDataSource.swift */,
 				1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */,
+				1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */,
 			);
 			path = RxVISER;
 			sourceTree = "<group>";
@@ -959,6 +962,7 @@
 				1B0087B1266FFF3C00906690 /* IRoute.swift in Sources */,
 				1B5750FE266FF8D9002AB349 /* SingleAction.swift in Sources */,
 				1B5750E8266FF8B2002AB349 /* IActionDispatcher.swift in Sources */,
+				1B366DD226F0F0A200A4A13C /* RxVISERInteractor.swift in Sources */,
 				1B5750D7266FF8B2002AB349 /* VISERViewController.swift in Sources */,
 				1B5750E2266FF8B2002AB349 /* StatePresenter.swift in Sources */,
 				1B575090266FF81E002AB349 /* UIViewController+OS.swift in Sources */,
