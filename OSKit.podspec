@@ -168,6 +168,11 @@ Pod::Spec.new do |s|
     rxuikit.dependency "RxSwiftExt", "~> 5.2.0"
   end
   
+  s.subspec "SwiftUI" do |swiftui|
+    switui.source_files = "OSKit/SwiftUI/*.{h,m}", "OSKit/SwiftUI/*.{swift}"
+    switui.framework  = "SwiftUI"
+  end
+  
   s.subspec "UserNotifications" do |usernotifications|
     usernotifications.source_files = "OSKit/UserNotifications/*.{h,m}", "OSKit/UserNotifications/*.{swift}"
     usernotifications.dependency "OSKit/Core"

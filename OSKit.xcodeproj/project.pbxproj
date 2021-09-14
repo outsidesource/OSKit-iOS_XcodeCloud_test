@@ -12,6 +12,8 @@
 		1B366DD226F0F0A200A4A13C /* RxVISERInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */; };
 		1B366DD426F0F29200A4A13C /* RxVISERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD326F0F29200A4A13C /* RxVISERViewController.swift */; };
 		1B366DD726F0F48A00A4A13C /* VISERTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */; };
+		1B366DE726F0FD0E00A4A13C /* View+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DE526F0FD0E00A4A13C /* View+OS.swift */; };
+		1B366DE826F0FD0E00A4A13C /* Binding+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DE626F0FD0E00A4A13C /* Binding+OS.swift */; };
 		1B41C96926E7E01C003D800C /* RxCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */; };
 		1B574F9A266FF290002AB349 /* TimeInterval+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F87266FF290002AB349 /* TimeInterval+OS.swift */; };
 		1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F88266FF290002AB349 /* IStringIdentifiable.swift */; };
@@ -174,6 +176,8 @@
 		1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxVISERInteractor.swift; sourceTree = "<group>"; };
 		1B366DD326F0F29200A4A13C /* RxVISERViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxVISERViewController.swift; sourceTree = "<group>"; };
 		1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VISERTableViewController.swift; sourceTree = "<group>"; };
+		1B366DE526F0FD0E00A4A13C /* View+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+OS.swift"; sourceTree = "<group>"; };
+		1B366DE626F0FD0E00A4A13C /* Binding+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding+OS.swift"; sourceTree = "<group>"; };
 		1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorReducer.swift; sourceTree = "<group>"; };
 		1B574F87266FF290002AB349 /* TimeInterval+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+OS.swift"; sourceTree = "<group>"; };
 		1B574F88266FF290002AB349 /* IStringIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStringIdentifiable.swift; sourceTree = "<group>"; };
@@ -351,6 +355,15 @@
 				1B575013266FF5CC002AB349 /* RxReSwiftStore.swift */,
 			);
 			path = RxReSwift;
+			sourceTree = "<group>";
+		};
+		1B366DE426F0FCEE00A4A13C /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				1B366DE626F0FD0E00A4A13C /* Binding+OS.swift */,
+				1B366DE526F0FD0E00A4A13C /* View+OS.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		1B574F86266FF290002AB349 /* Foundation */ = {
@@ -712,23 +725,24 @@
 				1B574FCA266FF3A7002AB349 /* CoreGraphics */,
 				1B8B698C2360948F00531F38 /* CoreLocation */,
 				1B574F86266FF290002AB349 /* Foundation */,
+				1B9B87DA21534DC4001075C9 /* Info.plist */,
 				1B574FD5266FF4A5002AB349 /* OSBuild */,
+				1B9B87D921534DC4001075C9 /* OSKit.h */,
+				1BBF985C245C981F00691D3F /* OSKit.podspec */,
 				1B574FE2266FF4C2002AB349 /* OSLog */,
 				1B574FEB266FF4F1002AB349 /* RxOSLog */,
 				1B574FF0266FF505002AB349 /* Resolver */,
 				1B57500C266FF5CC002AB349 /* ReSwift */,
 				1B0088B226712F5900906690 /* RxReSwift */,
 				1B575023266FF70F002AB349 /* RxBluetoothKit */,
+				1B8B6987236093EA00531F38 /* RxXCoordinator */,
 				1B57503E266FF79F002AB349 /* Swift */,
+				1B366DE426F0FCEE00A4A13C /* SwiftUI */,
 				1B575059266FF81D002AB349 /* UIKit */,
 				1B57509A266FF85B002AB349 /* RxUIKit */,
 				1B5750A7266FF87B002AB349 /* UserNotifications */,
 				1B5750B0266FF8B2002AB349 /* VISER */,
 				1B5750F2266FF8D9002AB349 /* RxVISER */,
-				1B9B87DA21534DC4001075C9 /* Info.plist */,
-				1B9B87D921534DC4001075C9 /* OSKit.h */,
-				1BBF985C245C981F00691D3F /* OSKit.podspec */,
-				1B8B6987236093EA00531F38 /* RxXCoordinator */,
 			);
 			path = OSKit;
 			sourceTree = "<group>";
@@ -951,6 +965,7 @@
 				1B5750E7266FF8B2002AB349 /* StateContainerAction.swift in Sources */,
 				1B575104266FF8D9002AB349 /* RxStateStore.swift in Sources */,
 				1B575080266FF81E002AB349 /* UIImage+OS.swift in Sources */,
+				1B366DE826F0FD0E00A4A13C /* Binding+OS.swift in Sources */,
 				1B574FA0266FF290002AB349 /* Data+OS.swift in Sources */,
 				1B57501A266FF5CC002AB349 /* ObservableAction+ReSwift.swift in Sources */,
 				1B5750D4266FF8B2002AB349 /* ITableViewDelegate.swift in Sources */,
@@ -975,6 +990,7 @@
 				1B574FA3266FF290002AB349 /* OSColor.swift in Sources */,
 				1B57508E266FF81E002AB349 /* UIAlertController+OS.swift in Sources */,
 				1B574F9E266FF290002AB349 /* Date+OS.swift in Sources */,
+				1B366DE726F0FD0E00A4A13C /* View+OS.swift in Sources */,
 				1B57507D266FF81E002AB349 /* UIStoryboard+OS.swift in Sources */,
 				1B575095266FF81E002AB349 /* ProgressState.swift in Sources */,
 				1B575096266FF81E002AB349 /* UIView+OS.swift in Sources */,
