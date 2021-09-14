@@ -11,7 +11,7 @@ import SwiftUI
 import Resolver
 
 @available(iOS 13.0, *)
-public class SwiftUICoordinator: ICoordinator, ObservableObject {
+open class SwiftUICoordinator: ICoordinator, ObservableObject {
 
     private var logDomains: [OSLog.Domain] = [.coordinator]
 
@@ -38,7 +38,7 @@ public class SwiftUICoordinator: ICoordinator, ObservableObject {
         self.dispatch(StateContainerAction.deinitState(id))
     }
     
-    init(parent: SwiftUICoordinator? = nil) {
+    public init(parent: SwiftUICoordinator? = nil) {
         
         self.combineStatePresenter = Resolver.root.resolve(args: id)
         self.parent = parent

@@ -15,6 +15,9 @@ open class CoordinatorReducer: IIdentifiableReducer {
         }
         
         switch action {
+        
+        case let action as CoordinatorAction.QueueRoute:
+            return reduceQueueRouteAction(action, coordinatorState)
             
         case let action as CoordinatorAction.TriggerRoute:
             return reduceTriggerRouteAction(action, coordinatorState)
@@ -25,6 +28,20 @@ open class CoordinatorReducer: IIdentifiableReducer {
         }
         
         return coordinatorState
+        
+    }
+    
+    private class func reduceQueueRouteAction(_ action: CoordinatorAction.QueueRoute, _ state: ICoordinatorState) -> ICoordinatorState {
+        
+        var state = state
+        
+        guard let route = action.route else {
+            return state
+        }
+        
+        state.routes.append(route)
+        
+        return state
         
     }
     

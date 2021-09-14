@@ -13,7 +13,7 @@ public class CombineStatePresenter<S: IState>: IStringIdentifiable, ObservableOb
     
     public let id: String
     
-    @Published var state: S?
+    @Published public var state: S?
     
     private let stateStore: ICombineStateStore
     private var cancellables = Set<AnyCancellable>()
