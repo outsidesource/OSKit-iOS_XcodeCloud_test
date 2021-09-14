@@ -353,13 +353,6 @@
 			path = RxReSwift;
 			sourceTree = "<group>";
 		};
-		1B366DD526F0F40500A4A13C /* VISER-UIKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "VISER-UIKit";
-			sourceTree = "<group>";
-		};
 		1B574F86266FF290002AB349 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -713,7 +706,6 @@
 		1B9B87D821534DC4001075C9 /* OSKit */ = {
 			isa = PBXGroup;
 			children = (
-				1B366DD526F0F40500A4A13C /* VISER-UIKit */,
 				1B921FCB257F360A0036B5DA /* Alamofire */,
 				1B921FDA257F37B40036B5DA /* RxAlamofire */,
 				1B574FBA266FF329002AB349 /* AVFoundation */,
