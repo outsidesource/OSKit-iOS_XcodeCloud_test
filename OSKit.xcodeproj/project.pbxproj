@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B0087A9266FFEDC00906690 /* VISERNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087A8266FFEDC00906690 /* VISERNavigationCoordinator.swift */; };
+		1B0087A9266FFEDC00906690 /* RxVISERNavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087A8266FFEDC00906690 /* RxVISERNavigationCoordinator.swift */; };
 		1B0087B1266FFF3C00906690 /* IRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0087B0266FFF3C00906690 /* IRoute.swift */; };
 		1B366DD226F0F0A200A4A13C /* RxVISERInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */; };
 		1B366DD426F0F29200A4A13C /* RxVISERViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD326F0F29200A4A13C /* RxVISERViewController.swift */; };
@@ -168,7 +168,7 @@
 
 /* Begin PBXFileReference section */
 		0CAAED2470286E48FA60E7C7 /* Pods_OSKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B0087A8266FFEDC00906690 /* VISERNavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISERNavigationCoordinator.swift; sourceTree = "<group>"; };
+		1B0087A8266FFEDC00906690 /* RxVISERNavigationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxVISERNavigationCoordinator.swift; sourceTree = "<group>"; };
 		1B0087B0266FFF3C00906690 /* IRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IRoute.swift; sourceTree = "<group>"; };
 		1B08D3812319ACA400B6F0C0 /* CLRegion+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLRegion+OS.swift"; sourceTree = "<group>"; };
 		1B366DD126F0F0A200A4A13C /* RxVISERInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxVISERInteractor.swift; sourceTree = "<group>"; };
@@ -660,7 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */,
-				1B0087A8266FFEDC00906690 /* VISERNavigationCoordinator.swift */,
+				1B0087A8266FFEDC00906690 /* RxVISERNavigationCoordinator.swift */,
 			);
 			path = RxXCoordinator;
 			sourceTree = "<group>";
@@ -927,7 +927,7 @@
 				1B5750AA266FF87B002AB349 /* UNNotificationAttachment+OS.swift in Sources */,
 				1B5750A2266FF85B002AB349 /* OSNavigationController+Rx.swift in Sources */,
 				1B5750E1266FF8B2002AB349 /* IIdentifiableState.swift in Sources */,
-				1B0087A9266FFEDC00906690 /* VISERNavigationCoordinator.swift in Sources */,
+				1B0087A9266FFEDC00906690 /* RxVISERNavigationCoordinator.swift in Sources */,
 				1B5750EC266FF8B2002AB349 /* ICoordinator.swift in Sources */,
 				1B921FDC257F37B40036B5DA /* ObservableType+Validation.swift in Sources */,
 				1B57504F266FF79F002AB349 /* Int+OS.swift in Sources */,

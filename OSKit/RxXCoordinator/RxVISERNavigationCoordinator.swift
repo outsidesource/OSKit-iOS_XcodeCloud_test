@@ -10,8 +10,7 @@ import Resolver
 import RxSwift
 import XCoordinator
 
-// FIXME: RENAME to RxNavigationCoordinator
-open class VISERNavigationCoordinator<S: ICoordinatorState, R: IRoute & Route>: NavigationCoordinator<R>, ICoordinator {
+open class RxVISERNavigationCoordinator<S: ICoordinatorState, R: IRoute & Route>: NavigationCoordinator<R>, ICoordinator {
     
     public let id: String
     public let disposeBag = DisposeBag()
