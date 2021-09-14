@@ -6,7 +6,6 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-import Foundation
 import Resolver
 
 @available(iOS 13.0, *)
