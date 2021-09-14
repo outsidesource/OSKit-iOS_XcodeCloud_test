@@ -18,6 +18,9 @@
 		1B366DEF26F0FECF00A4A13C /* CombineStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DEB26F0FECF00A4A13C /* CombineStateStore.swift */; };
 		1B366DF026F0FECF00A4A13C /* ICombineStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DEC26F0FECF00A4A13C /* ICombineStateStore.swift */; };
 		1B366DF126F0FECF00A4A13C /* CombineStatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DED26F0FECF00A4A13C /* CombineStatePresenter.swift */; };
+		1B366DF726F1012700A4A13C /* SwiftUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */; };
+		1B366DF826F1012700A4A13C /* SwiftUICoordinatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */; };
+		1B366DF926F1012700A4A13C /* CoordinatorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */; };
 		1B41C96926E7E01C003D800C /* RxCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */; };
 		1B574F9A266FF290002AB349 /* TimeInterval+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F87266FF290002AB349 /* TimeInterval+OS.swift */; };
 		1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F88266FF290002AB349 /* IStringIdentifiable.swift */; };
@@ -186,6 +189,9 @@
 		1B366DEB26F0FECF00A4A13C /* CombineStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineStateStore.swift; sourceTree = "<group>"; };
 		1B366DEC26F0FECF00A4A13C /* ICombineStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICombineStateStore.swift; sourceTree = "<group>"; };
 		1B366DED26F0FECF00A4A13C /* CombineStatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineStatePresenter.swift; sourceTree = "<group>"; };
+		1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUICoordinator.swift; sourceTree = "<group>"; };
+		1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUICoordinatorTransition.swift; sourceTree = "<group>"; };
+		1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModifier.swift; sourceTree = "<group>"; };
 		1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorReducer.swift; sourceTree = "<group>"; };
 		1B574F87266FF290002AB349 /* TimeInterval+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+OS.swift"; sourceTree = "<group>"; };
 		1B574F88266FF290002AB349 /* IStringIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStringIdentifiable.swift; sourceTree = "<group>"; };
@@ -383,6 +389,24 @@
 				1B366DED26F0FECF00A4A13C /* CombineStatePresenter.swift */,
 			);
 			path = "VISER-Combine";
+			sourceTree = "<group>";
+		};
+		1B366DF226F100F500A4A13C /* VISER-SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				1B366DF326F1012700A4A13C /* Router */,
+			);
+			path = "VISER-SwiftUI";
+			sourceTree = "<group>";
+		};
+		1B366DF326F1012700A4A13C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */,
+				1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */,
+				1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		1B574F86266FF290002AB349 /* Foundation */ = {
@@ -762,6 +786,7 @@
 				1B5750A7266FF87B002AB349 /* UserNotifications */,
 				1B5750B0266FF8B2002AB349 /* VISER */,
 				1B366DE926F0FECF00A4A13C /* VISER-Combine */,
+				1B366DF226F100F500A4A13C /* VISER-SwiftUI */,
 				1B5750F2266FF8D9002AB349 /* RxVISER */,
 			);
 			path = OSKit;
@@ -985,11 +1010,13 @@
 				1B5750D9266FF8B2002AB349 /* VISERInteractor.swift in Sources */,
 				1B5750E7266FF8B2002AB349 /* StateContainerAction.swift in Sources */,
 				1B575104266FF8D9002AB349 /* RxStateStore.swift in Sources */,
+				1B366DF926F1012700A4A13C /* CoordinatorViewModifier.swift in Sources */,
 				1B575080266FF81E002AB349 /* UIImage+OS.swift in Sources */,
 				1B366DE826F0FD0E00A4A13C /* Binding+OS.swift in Sources */,
 				1B574FA0266FF290002AB349 /* Data+OS.swift in Sources */,
 				1B57501A266FF5CC002AB349 /* ObservableAction+ReSwift.swift in Sources */,
 				1B5750D4266FF8B2002AB349 /* ITableViewDelegate.swift in Sources */,
+				1B366DF826F1012700A4A13C /* SwiftUICoordinatorTransition.swift in Sources */,
 				1B5750DC266FF8B2002AB349 /* IIdentifiableReducer.swift in Sources */,
 				1B57508A266FF81E002AB349 /* UINavigationController+OS.swift in Sources */,
 				1B366DEE26F0FECF00A4A13C /* CombineInteractor.swift in Sources */,
@@ -999,6 +1026,7 @@
 				1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */,
 				1B57507B266FF81E002AB349 /* UIViewController+Storyboard.swift in Sources */,
 				1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */,
+				1B366DF726F1012700A4A13C /* SwiftUICoordinator.swift in Sources */,
 				1B5750E9266FF8B2002AB349 /* IActionDispatching.swift in Sources */,
 				1B5750AB266FF87B002AB349 /* UNNotificationSound+OS.swift in Sources */,
 				1B574FA5266FF290002AB349 /* OSLocaleString.swift in Sources */,

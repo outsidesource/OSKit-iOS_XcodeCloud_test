@@ -194,6 +194,12 @@ Pod::Spec.new do |s|
     visercombine.framework = "Combine"
   end
   
+  s.subspec "VISER-SwiftUI" do |viserswiftui|
+    viserswiftui.source_files = "OSKit/VISER-SwiftUI/**/*.{h,m}", "OSKit/VISER-SwiftUI/**/*.{swift}"
+    viserswiftui.dependency "OSKit/SwiftUI"
+    viserswiftui.dependency "OSKit/VISER-Combine"
+  end
+  
   s.subspec "RxVISER" do |rxviser|
     rxviser.source_files = "OSKit/RxVISER/*.{h,m}", "OSKit/RxVISER/*.{swift}"
     rxviser.dependency "OSKit/VISER"
