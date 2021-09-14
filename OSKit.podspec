@@ -189,13 +189,13 @@ Pod::Spec.new do |s|
   end
   
   s.subspec "VISER-Combine" do |visercombine|
-    visercombine.source_files = "OSKit/VISER-Combine/**/*.{h,m}", "OSKit/VISER-Combine/**/*.{swift}"
+    visercombine.source_files = "OSKit/VISER-Combine/*.{h,m}", "OSKit/VISER-Combine/*.{swift}"
     visercombine.dependency "OSKit/VISER"
     visercombine.framework = "Combine"
   end
   
   s.subspec "VISER-SwiftUI" do |viserswiftui|
-    viserswiftui.source_files = "OSKit/VISER-SwiftUI/**/*.{h,m}", "OSKit/VISER-SwiftUI/**/*.{swift}"
+    viserswiftui.source_files = "OSKit/VISER-SwiftUI/*.{h,m}", "OSKit/VISER-SwiftUI/*.{swift}"
     viserswiftui.dependency "OSKit/SwiftUI"
     viserswiftui.dependency "OSKit/VISER-Combine"
   end

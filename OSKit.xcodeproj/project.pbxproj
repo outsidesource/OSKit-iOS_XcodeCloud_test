@@ -396,19 +396,11 @@
 		1B366DF226F100F500A4A13C /* VISER-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				1B366DF326F1012700A4A13C /* Router */,
-			);
-			path = "VISER-SwiftUI";
-			sourceTree = "<group>";
-		};
-		1B366DF326F1012700A4A13C /* Router */ = {
-			isa = PBXGroup;
-			children = (
 				1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */,
 				1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */,
 				1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */,
 			);
-			path = Router;
+			path = "VISER-SwiftUI";
 			sourceTree = "<group>";
 		};
 		1B366DFA26F1025F00A4A13C /* ReSwift-Combine */ = {
