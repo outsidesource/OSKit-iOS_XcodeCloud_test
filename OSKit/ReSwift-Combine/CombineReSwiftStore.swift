@@ -3,6 +3,7 @@
 //  OSKit
 //
 //  Created by Brody Robertson on 7/2/21.
+//  Copyright © 2020 Outside Source. All rights reserved.
 //
 
 import ReSwift
