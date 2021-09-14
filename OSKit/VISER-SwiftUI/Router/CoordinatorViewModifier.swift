@@ -1,6 +1,6 @@
 //
 //  CoordinatorViewModifier.swift
-//  OSKit-Example
+//  OSKit
 //
 //  Created by Brody Robertson on 8/19/21.
 //

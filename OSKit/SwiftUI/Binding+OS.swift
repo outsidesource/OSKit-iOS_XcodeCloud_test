@@ -1,6 +1,6 @@
 //
 //  Binding+OS.swift
-//  OSKit-Example
+//  OSKit
 //
 //  Created by Brody Robertson on 7/14/21.
 //

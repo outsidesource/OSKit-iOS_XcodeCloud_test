@@ -1,6 +1,6 @@
 //
 //  CombineInteractor.swift
-//  OSKit-Example
+//  OSKit
 //
 //  Created by Brody Robertson on 9/13/21.
 //

@@ -1,6 +1,6 @@
 //
 //  ICombineStateStore.swift
-//  OSKit-Example
+//  OSKit
 //
 //  Created by Brody Robertson on 7/1/21.
 //

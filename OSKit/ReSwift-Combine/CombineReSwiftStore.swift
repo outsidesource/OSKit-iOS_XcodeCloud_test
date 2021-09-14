@@ -1,6 +1,6 @@
 //
 //  CombineReSwiftStore.swift
-//  OSKit-Example
+//  OSKit
 //
 //  Created by Brody Robertson on 7/2/21.
 //

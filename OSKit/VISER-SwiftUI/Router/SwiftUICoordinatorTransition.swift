@@ -1,6 +1,6 @@
 //
 //  SwiftUICoordinatorTransition.swift
-//  OSKit-Example
+//  OSKit
 //
 //  Created by Brody Robertson on 9/14/21.
 //
