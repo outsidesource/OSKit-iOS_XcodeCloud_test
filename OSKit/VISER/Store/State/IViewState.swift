@@ -18,6 +18,10 @@ public protocol IViewState: IState {
 //    var accessibilityState: AccessibilityState? { get set }
 }
 
+public protocol IImageViewState: IViewState {
+    var imageName: String? { get set }
+}
+
 public protocol IControlState: IViewState {
     var isSelected: Bool? { get set }
 }
@@ -53,7 +57,7 @@ public protocol ITextFieldState: IControlState {
 public protocol ITableViewCellState: IViewState {
     var textLabelState: LabelState? { get }
     var detailTextLabelState: LabelState? { get }
-    var imageViewState: ViewState? { get }
+    var imageViewState: ImageViewState? { get }
     var accessoryViewState: ViewState? { get }
 }
 
@@ -83,6 +87,31 @@ public struct ViewState: IViewState, Codable, Hashable {
         self.isHidden = isHidden
         self.isEnabled = isEnabled
         self.alpha = alpha
+        
+    }
+    
+}
+
+public struct ImageViewState: IImageViewState, Codable, Hashable {
+    
+    /// UIImageView
+    public var imageName: String?
+    
+    /// UIView
+    public var id: String?
+    public var tag: Int?
+    public var isHidden: Bool?
+    public var isEnabled: Bool?
+    public var alpha: CGFloat?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, imageName: String? = nil) {
+        
+        self.id = id
+        self.tag = tag
+        self.isHidden = isHidden
+        self.isEnabled = isEnabled
+        self.alpha = alpha
+        self.imageName = imageName
         
     }
     
@@ -277,10 +306,10 @@ public struct TableViewCellState: ITableViewCellState, Codable, Hashable {
     /// UITableViewCell
     public var textLabelState: LabelState?
     public var detailTextLabelState: LabelState?
-    public var imageViewState: ViewState?
+    public var imageViewState: ImageViewState?
     public var accessoryViewState: ViewState?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, textLabelState: LabelState? = nil, detailTextLabelState: LabelState? = nil, imageViewState: ViewState? = nil, accessoryViewState: ViewState? = nil) {
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, textLabelState: LabelState? = nil, detailTextLabelState: LabelState? = nil, imageViewState: ImageViewState? = nil, accessoryViewState: ViewState? = nil) {
         
         self.id = id
         self.tag = tag
