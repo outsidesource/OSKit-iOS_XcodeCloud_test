@@ -14,12 +14,14 @@ public protocol IViewStateRepresentable {
 
 // TODO: - 0 ADD SwiftUI extensions
 
-extension UIView: IViewStateRepresentable {
+extension IViewStateRepresentable {
     
     public func setViewState(_ viewState: IViewState) {
         
         if let self = self as? UILabel, let viewState = viewState as? ILabelState {
             self.setLabelState(viewState)
+        } else if let self = self as? UIImageView, let viewState = viewState as? IImageViewState {
+            self.setImageViewState(viewState)
         } else if let self = self as? UIButton, let viewState = viewState as? IButtonState {
             self.setButtonState(viewState)
         } else if let self = self as? UISegmentedControl, let viewState = viewState as? ISegmentedControlState {
@@ -34,11 +36,15 @@ extension UIView: IViewStateRepresentable {
             self.setTableViewCellState(viewState)
         } else if let self = self as? OSProgressView, let viewState = viewState as? IProgressViewState {
             self.setProgressViewState(viewState)
-        } else {
+        } else if let self = self as? UIView {
             self._setViewState(viewState)
         }
         
     }
+    
+}
+
+extension UIView: IViewStateRepresentable {
     
     internal func _setViewState(_ viewState: IViewState) {
         
@@ -47,6 +53,15 @@ extension UIView: IViewStateRepresentable {
         if let alpha = viewState.alpha { self.alpha = alpha }
         if let tag = viewState.tag { self.tag = tag }
         
+    }
+    
+}
+
+public extension IViewStateRepresentable where Self: UIImageView {
+    
+    func setImageViewState(_ imageViewState: IImageViewState) {
+        self._setViewState(imageViewState)
+        if let imageName = imageViewState.imageName { self.image = UIImage(named: imageName) }
     }
     
 }

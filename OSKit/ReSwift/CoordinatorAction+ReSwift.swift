@@ -10,3 +10,4 @@ import ReSwift
 
 extension CoordinatorAction: Action { }
 extension CoordinatorAction.TriggerRoute: Action { }
+extension CoordinatorAction.QueueRoute: Action { }

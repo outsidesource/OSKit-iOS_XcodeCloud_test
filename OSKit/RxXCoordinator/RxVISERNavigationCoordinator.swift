@@ -10,7 +10,7 @@ import Resolver
 import RxSwift
 import XCoordinator
 
-open class VISERNavigationCoordinator<S: ICoordinatorState, R: IRoute & Route>: NavigationCoordinator<R>, ICoordinator {
+open class RxVISERNavigationCoordinator<S: ICoordinatorState, R: IRoute & Route>: NavigationCoordinator<R>, ICoordinator {
     
     public let id: String
     public let disposeBag = DisposeBag()
