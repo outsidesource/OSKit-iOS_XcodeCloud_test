@@ -17,4 +17,14 @@ public extension Bundle {
         return Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
     
+    static var versionDescription: String? {
+        
+        guard let version = version, let buildVersion = buildVersion else {
+            return nil
+        }
+        
+        return "\(version) (\(buildVersion))"
+        
+    }
+    
 }
