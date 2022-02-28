@@ -65,6 +65,7 @@ public protocol IProgressViewState: IViewState {
     var progressState: ProgressState? { get }
 }
 
+// TODO: REMOVE IViewState conformance
 public protocol INavigationItemState: IViewState {
     var title: String? { get set }
     var prompt: String? { get set }

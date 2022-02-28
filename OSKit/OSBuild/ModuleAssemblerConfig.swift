@@ -7,7 +7,13 @@
 //
 
 public struct ModuleAssemblerConfig {
+    
+    /// The name of the build configuration, this can be reflected at runtime for telemetry purposes
+    /// - This should be a a description of the semantics such as: Brand Variant, Platform, Envivronment
+    /// - Ex. Outside Source iOS Debug
     var name: String
+    
+    /// Array of included Modules to be registered with the Build
     var moduleAssemblies: [IModuleAssembly]
     
     public init(name: String, moduleAssemblies: [IModuleAssembly]) {
