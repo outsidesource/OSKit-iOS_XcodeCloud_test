@@ -9,9 +9,9 @@
 import Resolver
 import RxSwift
 
-open class RxVISERTableViewController<S: IState, V: IViewDelegate>: VISERTableViewController<S, V> {
- 
-    public let disposeBag = DisposeBag()
-    public lazy var rxStatePresenter: RxStatePresenter<S> = Resolver.root.resolve(args: self.id)
-    
-}
+//open class RxVISERTableViewController<S: IState, V: IViewDelegate>: VISERTableViewController<S, V> {
+// 
+//    public let disposeBag = DisposeBag()
+//    public lazy var rxStateStore: RxStateStore<S> = Resolver.root.resolve(args: self.id)
+//    
+//}

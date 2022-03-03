@@ -1,5 +1,5 @@
 //
-//  RxStatePresenter.swift
+//  RxStateStore.swift
 //  OSKit
 //
 //  Created by Brody Robertson.
@@ -8,22 +8,22 @@
 
 import RxSwift
 
-public struct RxStatePresenter<S: IState>: IStringIdentifiable {
-    
-    public let id: String
-    
-    private let stateStore: IRxStateStore
-    
-    public lazy var state: Observable<S?> = {
-        return stateStore.getStateObservable(id)
-            .map {
-                $0 as? S
-            }
-    }()
-    
-    public init(id: String, stateStore: IRxStateStore) {
-        self.id = id
-        self.stateStore = stateStore
-    }
-    
-}
+//public struct RxStateStore<S: IState>: IStringIdentifiable {
+//
+//    public let id: String
+//
+//    private let stateStore: IRxStateStore
+//
+//    public lazy var state: Observable<S?> = {
+//        return stateStore.getStateObservable(id)
+//            .map {
+//                $0 as? S
+//            }
+//    }()
+//
+//    public init(id: String, stateStore: IRxStateStore) {
+//        self.id = id
+//        self.stateStore = stateStore
+//    }
+//
+//}

@@ -16,7 +16,7 @@ open class RxVISERNavigationCoordinator<S: ICoordinatorState, R: IRoute & Route>
     public let disposeBag = DisposeBag()
     
     @Injected public private(set) var actionDispatcher: IActionDispatcher
-    public lazy var rxStatePresenter: RxStatePresenter<S> = Resolver.root.resolve(args: self.id)
+    public lazy var rxStateStore: RxStateStore<S> = Resolver.root.resolve(args: self.id)
     
     deinit {
         self.dispatch(StateContainerAction.deinitState(id))
@@ -42,7 +42,7 @@ open class RxVISERNavigationCoordinator<S: ICoordinatorState, R: IRoute & Route>
     
     private func bindToRoutes() {
         
-        self.rxStatePresenter.state
+        self.rxStateStore.state
             // TODO: - 1 CONSIDER alternatives to evaluating changes to routes queue, this approach could fail if routes contains multiple contiguous instances of same route
             .map { $0?.routes.first }
             .distinctUntilChanged { route in
