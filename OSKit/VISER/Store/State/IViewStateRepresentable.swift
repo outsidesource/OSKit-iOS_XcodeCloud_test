@@ -16,6 +16,7 @@ public protocol IViewStateRepresentable {
 
 extension IViewStateRepresentable {
     
+    // TODO: - 0 CONSIDER generic implementation
     public func setViewState(_ viewState: IViewState) {
         
         if let self = self as? UILabel, let viewState = viewState as? ILabelState {
