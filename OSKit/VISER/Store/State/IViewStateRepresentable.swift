@@ -9,123 +9,94 @@
 import UIKit
 
 public protocol IViewStateRepresentable {
-    func setViewState(_ viewState: IViewState)
+    func setViewState<StateType: IViewState>(_ viewState: StateType)
 }
 
-// TODO: - 0 ADD SwiftUI extensions
+extension UIView: IViewStateRepresentable { }
 
-extension IViewStateRepresentable {
+public extension IViewStateRepresentable where Self: UIView {
     
-    // TODO: - 0 CONSIDER generic implementation
-    public func setViewState(_ viewState: IViewState) {
-        
-        if let self = self as? UILabel, let viewState = viewState as? ILabelState {
-            self.setLabelState(viewState)
-        } else if let self = self as? UIImageView, let viewState = viewState as? IImageViewState {
-            self.setImageViewState(viewState)
-        } else if let self = self as? UIButton, let viewState = viewState as? IButtonState {
-            self.setButtonState(viewState)
-        } else if let self = self as? UISegmentedControl, let viewState = viewState as? ISegmentedControlState {
-            self.setSegmentedControlState(viewState)
-        } else if let self = self as? UISlider, let viewState = viewState as? ISliderState {
-            self.setSliderState(viewState)
-        } else if let self = self as? UISwitch, let viewState = viewState as? ISwitchState {
-            self.setSwitchState(viewState)
-        } else if let self = self as? UITextField, let viewState = viewState as? ITextFieldState {
-            self.setTextFieldState(viewState)
-        } else if let self = self as? UITableViewCell, let viewState = viewState as? ITableViewCellState {
-            self.setTableViewCellState(viewState)
-        } else if let self = self as? OSProgressView, let viewState = viewState as? IProgressViewState {
-            self.setProgressViewState(viewState)
-        } else if let self = self as? UIView {
-            self._setViewState(viewState)
-        }
-        
-    }
-    
-}
-
-extension UIView: IViewStateRepresentable {
-    
-    internal func _setViewState(_ viewState: IViewState) {
-        
+    func setViewState<StateType: IViewState>(_ viewState: StateType) {
+        if let tag = viewState.tag { self.tag = tag }
         if let isHidden = viewState.isHidden { self.isHidden = isHidden }
         if let isEnabled = viewState.isEnabled { self.isUserInteractionEnabled = isEnabled }
-        if let alpha = viewState.alpha { self.alpha = alpha }
-        if let tag = viewState.tag { self.tag = tag }
-        
     }
     
+}
+
+// MARK: - UIView
+
+public extension IViewStateRepresentable where Self: UIActivityIndicatorView {
+    
+    func setActivityIndicatorViewState<StateType: IActivityIndicatorViewState>(_ activityIndicatorViewState: StateType) {
+        self.setViewState(activityIndicatorViewState)
+        
+        if let isAnimating = activityIndicatorViewState.isAnimating {
+            if isAnimating {
+                if !self.isAnimating {
+                    self.startAnimating()
+                }
+            } else {
+                if self.isAnimating {
+                    self.stopAnimating()
+                }
+            }
+        }
+    }
+
 }
 
 public extension IViewStateRepresentable where Self: UIImageView {
-    
-    func setImageViewState(_ imageViewState: IImageViewState) {
-        self._setViewState(imageViewState)
+
+    func setImageViewState<StateType: IImageViewState>(_ imageViewState: StateType) {
+        self.setViewState(imageViewState)
         if let imageName = imageViewState.imageName { self.image = UIImage(named: imageName) }
     }
-    
+
 }
 
 public extension IViewStateRepresentable where Self: UILabel {
     
-    func setLabelState(_ labelState: ILabelState) {
-        self._setViewState(labelState)
+    func setLabelState<StateType: ILabelState>(_ labelState: StateType) {
+        self.setViewState(labelState)
         if let text = labelState.text { self.text = text }
     }
-    
+
 }
+
+public extension IViewStateRepresentable where Self: UIProgressView {
+    
+    func setProgressViewState<StateType: IProgressViewState>(_ progressState: StateType) {
+        self.setViewState(progressState)
+        if let progress = progressState.progress { self.progress = progress }
+    }
+
+}
+
+// MARK: - UIControl
 
 public extension IViewStateRepresentable where Self: UIControl {
     
-    func setControlState(_ controlState: IControlState) {
-        self._setViewState(controlState)
+    func setControlState<StateType: IControlState>(_ controlState: StateType) {
+        self.setViewState(controlState)
         if let isSelected = controlState.isSelected { self.isSelected = isSelected }
+        if let isHighlighted = controlState.isHighlighted { self.isHighlighted = isHighlighted }
     }
-    
+
 }
 
 public extension IViewStateRepresentable where Self: UIButton {
     
-    func setButtonState(_ buttonState: IButtonState) {
-        setControlState(buttonState)
+    func setButtonState<StateType: IButtonState>(_ buttonState: StateType) {
+        self.setControlState(buttonState)
         if let title = buttonState.title { self.setTitle(title, for: .normal) }
     }
-    
-}
 
-public extension IViewStateRepresentable where Self: UITextField {
-    
-    func setTextFieldState(_ textFieldState: ITextFieldState) {
-        self.setControlState(textFieldState)
-        if let text = textFieldState.text { self.text = text }
-    }
-    
-}
-
-public extension IViewStateRepresentable where Self: UITableViewCell {
-    
-    func setTableViewCellState(_ tableViewCellState: ITableViewCellState) {
-        self._setViewState(tableViewCellState)
-        if let textLabelState = tableViewCellState.textLabelState { self.textLabel?.setLabelState(textLabelState) }
-        if let detailTextLabelState = tableViewCellState.detailTextLabelState { self.detailTextLabel?.setLabelState(detailTextLabelState) }
-    }
-    
-}
-
-public extension IViewStateRepresentable where Self: OSTableViewCell {
-    
-    func setOSTableViewCellState(_ tableViewCellState: ITableViewCellState) {
-        self._setViewState(tableViewCellState)
-        if let textLabelState = tableViewCellState.textLabelState { self.label?.setLabelState(textLabelState) }
-        if let detailTextLabelState = tableViewCellState.detailTextLabelState { self.detailLabel?.setLabelState(detailTextLabelState) }
-    }
-    
 }
 
 public extension IViewStateRepresentable where Self: UISegmentedControl {
-    
-    func setSegmentedControlState(_ segmentedControlState: ISegmentedControlState) {
+
+    func setSegmentedControlState<StateType: ISegmentedControlState>(_ segmentedControlState: StateType) {
         self.setControlState(segmentedControlState)
         if let selectedSegmentIndex = segmentedControlState.selectedSegmentIndex { self.selectedSegmentIndex = selectedSegmentIndex }
     }
@@ -133,8 +104,8 @@ public extension IViewStateRepresentable where Self: UISegmentedControl {
 }
 
 public extension IViewStateRepresentable where Self: UISlider {
-    
-    func setSliderState(_ sliderState: ISliderState) {
+
+    func setSliderState<StateType: ISliderState>(_ sliderState: StateType) {
         self.setControlState(sliderState)
         if let minimumValue = sliderState.minimumValue { self.minimumValue = minimumValue }
         if let maximumValue = sliderState.maximumValue { self.maximumValue = maximumValue }
@@ -144,38 +115,50 @@ public extension IViewStateRepresentable where Self: UISlider {
 }
 
 public extension IViewStateRepresentable where Self: UISwitch {
-    
-    func setSwitchState(_ switchState: ISwitchState) {
+
+    func setSwitchState<StateType: ISwitchState>(_ switchState: StateType) {
         self.setControlState(switchState)
         if let isOn = switchState.isOn { self.isOn = isOn }
     }
     
 }
 
-public extension IViewStateRepresentable where Self: OSProgressView {
+public extension IViewStateRepresentable where Self: UITextField {
     
-    func setProgressViewState(_ progressViewState: IProgressViewState) {
-        self._setViewState(progressViewState)
-        if let progressState = progressViewState.progressState { self.progressState = progressState }
+    func setTextFieldState<StateType: ITextFieldState>(_ textFieldState: StateType) {
+        self.setControlState(textFieldState)
+        if let text = textFieldState.text { self.text = text }
     }
-    
+
 }
 
-extension UINavigationItem: IViewStateRepresentable {
+// MARK: - Composite Views
+
+public extension IViewStateRepresentable where Self: UITableViewCell {
     
-    public func setViewState(_ viewState: IViewState) {
-        
-        if let viewState = viewState as? INavigationItemState {
-            self.setNavigationItemState(viewState)
-        }
-        
+    func setTableViewCellState<StateType: ITableViewCellState>(_ tableViewCellState: StateType) {
+        self.setViewState(tableViewCellState)
+        if let textLabelState = tableViewCellState.textLabelState { self.textLabel?.setLabelState(textLabelState) }
+        if let detailTextLabelState = tableViewCellState.detailTextLabelState { self.detailTextLabel?.setLabelState(detailTextLabelState) }
     }
-    
-    func setNavigationItemState(_ navigationItemState: INavigationItemState) {
-        if let title = navigationItemState.title { self.title = title }
-        if let prompt = navigationItemState.prompt { self.prompt = prompt }
-        if let backButtonTitle = navigationItemState.backButtonTitle { self.backButtonTitle = backButtonTitle }
-        if let hidesBackButton = navigationItemState.hidesBackButton { self.hidesBackButton = hidesBackButton }
-    }
-    
+
 }
+
+//extension UINavigationItem: IViewStateRepresentable {
+//
+//    public func setViewState(_ viewState: IViewState) {
+//
+//        if let viewState = viewState as? INavigationItemState {
+//            self.setNavigationItemState(viewState)
+//        }
+//
+//    }
+//
+//    func setNavigationItemState(_ navigationItemState: INavigationItemState) {
+//        if let title = navigationItemState.title { self.title = title }
+//        if let prompt = navigationItemState.prompt { self.prompt = prompt }
+//        if let backButtonTitle = navigationItemState.backButtonTitle { self.backButtonTitle = backButtonTitle }
+//        if let hidesBackButton = navigationItemState.hidesBackButton { self.hidesBackButton = hidesBackButton }
+//    }
+//
+//}
