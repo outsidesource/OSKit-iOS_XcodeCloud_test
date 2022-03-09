@@ -9,20 +9,11 @@
 import RxSwift
 import RxSwiftExt
 
-public extension ObservableType {
+// TODO: - 0 EXTRACT to ObservableType+OS
+public extension ObservableType where Element: Equatable {
     
-    func unwrapDistinct<Result: Equatable>() -> Observable<Result> where Element == Result? {
-        
-        return self.unwrap()
-            .distinctUntilChanged()
-        
-    }
-    
-    func distinctViewState<Result: IViewState & Equatable>() -> Observable<IViewState> where Element == Result? {
-        
-        return self.unwrapDistinct()
-            .map { $0 }
-        
+    func unwrapDistinctUntilChanged<Result>() -> Observable<Result> where Element == Result? {
+        return self.unwrap().distinctUntilChanged()
     }
     
 }
