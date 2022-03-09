@@ -82,8 +82,8 @@ public protocol ITableViewCellState: IViewState {
     var accessoryViewState: ViewState? { get }
 }
 
-// TODO: REMOVE IViewState conformance AND review semantics
-public protocol INavigationItemState: IViewState {
+// TODO: - 0 EXTRACT
+public protocol INavigationItemState: IState {
     var title: String? { get set }
     var prompt: String? { get set }
     var backButtonTitle: String? { get set }
@@ -406,14 +406,8 @@ public struct ProgressViewState: IProgressViewState, Codable, Hashable {
        
 }
 
-// TODO: REVIEW & remove IViewState conformance
+// TODO: - 0 EXTRACT
 public struct NavigationItemState: INavigationItemState, Codable, Hashable {
-    
-    /// UIView
-    public var id: String?
-    public var tag: Int?
-    public var isHidden: Bool?
-    public var isEnabled: Bool?
     
     /// UINavigationItem
     public var title: String?
@@ -421,12 +415,7 @@ public struct NavigationItemState: INavigationItemState, Codable, Hashable {
     public var backButtonTitle: String?
     public var hidesBackButton: Bool?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, title: String? = nil, prompt: String? = nil, backButtonTitle: String? = nil, hidesBackButton: Bool? = nil) {
-        
-        self.id = id
-        self.tag = tag
-        self.isHidden = isHidden
-        self.isEnabled = isEnabled
+    public init(title: String? = nil, prompt: String? = nil, backButtonTitle: String? = nil, hidesBackButton: Bool? = nil) {
         
         self.title = title
         self.prompt = prompt

@@ -144,21 +144,20 @@ public extension IViewStateRepresentable where Self: UITableViewCell {
 
 }
 
-//extension UINavigationItem: IViewStateRepresentable {
-//
-//    public func setViewState(_ viewState: IViewState) {
-//
-//        if let viewState = viewState as? INavigationItemState {
-//            self.setNavigationItemState(viewState)
-//        }
-//
-//    }
-//
-//    func setNavigationItemState(_ navigationItemState: INavigationItemState) {
-//        if let title = navigationItemState.title { self.title = title }
-//        if let prompt = navigationItemState.prompt { self.prompt = prompt }
-//        if let backButtonTitle = navigationItemState.backButtonTitle { self.backButtonTitle = backButtonTitle }
-//        if let hidesBackButton = navigationItemState.hidesBackButton { self.hidesBackButton = hidesBackButton }
-//    }
-//
-//}
+// TODO: - 0 EXTRACT
+public protocol INavigationItemStateRepresentable {
+    func setNavigationItemState<StateType: INavigationItemState>(_ navigationItemState: StateType)
+}
+
+extension UINavigationItem: INavigationItemStateRepresentable { }
+
+public extension INavigationItemStateRepresentable where Self: UINavigationItem {
+    
+    func setNavigationItemState<StateType: INavigationItemState>(_ navigationItemState: StateType) {
+        if let title = navigationItemState.title { self.title = title }
+        if let prompt = navigationItemState.prompt { self.prompt = prompt }
+        if let backButtonTitle = navigationItemState.backButtonTitle { self.backButtonTitle = backButtonTitle }
+        if let hidesBackButton = navigationItemState.hidesBackButton { self.hidesBackButton = hidesBackButton }
+    }
+    
+}

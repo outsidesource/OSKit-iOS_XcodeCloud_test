@@ -135,3 +135,14 @@ public extension Reactive where Base: UITableViewCell {
     }
     
 }
+
+// TODO: - 0 EXTRACT
+public extension Reactive where Base: UINavigationItem {
+
+    func navigationItemState<StateType: INavigationItemState>() -> Binder<StateType> {
+        Binder(base) { base, viewState in
+            base.setNavigationItemState(viewState)
+        }
+    }
+    
+}
