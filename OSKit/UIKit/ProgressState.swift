@@ -6,6 +6,7 @@
 //  Copyright © 2019 Outside Source. All rights reserved.
 //
 
+// TODO: - 0 REVIEW semantics aligned to UIProgressView, NSProgress, etc.
 public struct ProgressState: Codable, Hashable {
     
     public var description: String

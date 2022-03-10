@@ -8,26 +8,45 @@
 
 import CoreGraphics
 
-public protocol IViewState: IState {
+// TODO: - 0REMOVE { set } requirement
+
+public protocol IViewState: IState, Equatable {
     var id: String? { get set }
     var tag: Int? { get set }
     var isHidden: Bool? { get set }
     var isEnabled: Bool? { get set }
-    var alpha: CGFloat? { get set }
-    // TODO: - 1 ADD accessibilityState and IViewStateRepresentable setters
-//    var accessibilityState: AccessibilityState? { get set }
+    // TODO: - 1 ADD var accessibilityState: IAccessibilityState? { get set }
+}
+
+public protocol IActivityIndicatorViewState: IViewState {
+    var isAnimating: Bool? { get set }
 }
 
 public protocol IImageViewState: IViewState {
     var imageName: String? { get set }
 }
 
-public protocol IControlState: IViewState {
-    var isSelected: Bool? { get set }
-}
-
 public protocol ILabelState: IViewState {
     var text: String? { get set }
+    // TODO: - 1 ADD attributedText
+}
+
+public protocol IProgressViewState: IViewState {
+    var progress: Float? { get set }
+}
+
+// TODO: - 0 ADD ICollectionViewCellState
+// TODO: - 1 ADD IDatePickerState
+// TODO: - 1 ADD IPageControlState
+// TODO: - 0 ADD IPickerViewState
+// TODO: - 1 ADD IScrollViewState
+// TODO: - 0 ADD IStepperState
+
+// MARK: - UIControl
+
+public protocol IControlState: IViewState {
+    var isSelected: Bool? { get set }
+    var isHighlighted: Bool? { get set }
 }
 
 public protocol IButtonState: IControlState {
@@ -54,24 +73,33 @@ public protocol ITextFieldState: IControlState {
     var text: String? { get set }
 }
 
+// MARK: - Composite Views
+
 public protocol ITableViewCellState: IViewState {
-    var textLabelState: LabelState? { get }
-    var detailTextLabelState: LabelState? { get }
-    var imageViewState: ImageViewState? { get }
-    var accessoryViewState: ViewState? { get }
+    
+    associatedtype TextLabelStateType: ILabelState
+    var textLabelState: TextLabelStateType? { get }
+    
+    associatedtype DetailTextLabelStateType: ILabelState
+    var detailTextLabelState: DetailTextLabelStateType? { get }
+    
+    associatedtype ImageViewStateType: IImageViewState
+    var imageViewState: ImageViewStateType? { get }
+    
+    associatedtype ViewStateType: IViewState
+    var accessoryViewState: ViewStateType? { get }
+    
 }
 
-public protocol IProgressViewState: IViewState {
-    var progressState: ProgressState? { get }
-}
-
-// TODO: REMOVE IViewState conformance
-public protocol INavigationItemState: IViewState {
+// TODO: - 0 EXTRACT
+public protocol INavigationItemState: IState, Equatable {
     var title: String? { get set }
     var prompt: String? { get set }
     var backButtonTitle: String? { get set }
     var hidesBackButton: Bool? { get set }
 }
+
+// MARK: UIView
 
 public struct ViewState: IViewState, Codable, Hashable {
     
@@ -79,15 +107,36 @@ public struct ViewState: IViewState, Codable, Hashable {
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil) {
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
+        
+    }
+    
+}
+
+public struct ActivityIndicatorViewState: IActivityIndicatorViewState, Codable, Hashable {
+    
+    // UIView
+    public var id: String?
+    public var tag: Int?
+    public var isHidden: Bool?
+    public var isEnabled: Bool?
+    
+    // UIActivityIndicatorView
+    public var isAnimating: Bool?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isAnimating: Bool? = nil) {
+        
+        self.id = id
+        self.tag = tag
+        self.isHidden = isHidden
+        self.isEnabled = isEnabled
+        self.isAnimating = isAnimating
         
     }
     
@@ -95,23 +144,21 @@ public struct ViewState: IViewState, Codable, Hashable {
 
 public struct ImageViewState: IImageViewState, Codable, Hashable {
     
-    /// UIImageView
-    public var imageName: String?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, imageName: String? = nil) {
+    // UIImageView
+    public var imageName: String?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, imageName: String? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.imageName = imageName
         
     }
@@ -120,54 +167,54 @@ public struct ImageViewState: IImageViewState, Codable, Hashable {
 
 public struct LabelState: ILabelState, Codable, Hashable {
     
-    /// UILabel
-    public var text: String?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, text: String? = nil) {
+    // UILabel
+    public var text: String?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, text: String? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.text = text
         
     }
     
 }
 
+// MARK: - UIControl
+
 public struct ButtonState: IButtonState, Codable, Hashable {
     
-    /// UIButton
-    public var title: String?
-    public var imageName: String?
-    public var backgroundImageName: String?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, isSelected: Bool? = nil, title: String? = nil, imageName: String? = nil, backgroundImageName: String? = nil) {
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UIButton
+    public var title: String?
+    public var imageName: String?
+    public var backgroundImageName: String?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, title: String? = nil, imageName: String? = nil, backgroundImageName: String? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.isSelected = isSelected
+        self.isHighlighted = isHighlighted
         self.title = title
         self.imageName = imageName
         self.backgroundImageName = backgroundImageName
@@ -178,27 +225,27 @@ public struct ButtonState: IButtonState, Codable, Hashable {
 
 public struct SegmentedControlState: ISegmentedControlState, Codable, Hashable {
     
-    /// UISegmentedControl
-    public var selectedSegmentIndex: Int?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, isSelected: Bool? = nil, selectedSegmentIndex: Int? = nil) {
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UISegmentedControl
+    public var selectedSegmentIndex: Int?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, selectedSegmentIndex: Int? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.isSelected = isSelected
+        self.isHighlighted = isHighlighted
         self.selectedSegmentIndex = selectedSegmentIndex
         
     }
@@ -207,29 +254,29 @@ public struct SegmentedControlState: ISegmentedControlState, Codable, Hashable {
 
 public struct SliderState: ISliderState, Codable, Hashable {
     
-    /// UISlider
-    public var value: Float?
-    public var minimumValue: Float?
-    public var maximumValue: Float?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, isSelected: Bool? = nil, value: Float? = nil, minimumValue: Float? = nil, maximumValue: Float? = nil) {
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UISlider
+    public var value: Float?
+    public var minimumValue: Float?
+    public var maximumValue: Float?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, value: Float? = nil, minimumValue: Float? = nil, maximumValue: Float? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.isSelected = isSelected
+        self.isHighlighted = isHighlighted
         self.value = value
         self.minimumValue = minimumValue
         self.maximumValue = maximumValue
@@ -240,27 +287,27 @@ public struct SliderState: ISliderState, Codable, Hashable {
 
 public struct SwitchState: ISwitchState, Codable, Hashable {
     
-    /// UISwitch
-    public var isOn: Bool?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, isSelected: Bool? = nil, isOn: Bool? = nil) {
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UISwitch
+    public var isOn: Bool?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, isOn: Bool? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.isSelected = isSelected
+        self.isHighlighted = isHighlighted
         self.isOn = isOn
         
     }
@@ -269,54 +316,54 @@ public struct SwitchState: ISwitchState, Codable, Hashable {
 
 public struct TextFieldState: ITextFieldState, Codable, Hashable {
     
-    /// UITextField
-    public var text: String?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, isSelected: Bool? = nil, isOn: Bool? = nil, text: String? = nil) {
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UITextField
+    public var text: String?
+    
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, isOn: Bool? = nil, text: String? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         self.isSelected = isSelected
+        self.isHighlighted = isHighlighted
         self.text = text
         
     }
 }
 
+// MARK: - Composite Views
+
 public struct TableViewCellState: ITableViewCellState, Codable, Hashable {
         
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    /// UITableViewCell
+    // UITableViewCell
     public var textLabelState: LabelState?
     public var detailTextLabelState: LabelState?
     public var imageViewState: ImageViewState?
     public var accessoryViewState: ViewState?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, textLabelState: LabelState? = nil, detailTextLabelState: LabelState? = nil, imageViewState: ImageViewState? = nil, accessoryViewState: ViewState? = nil) {
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, textLabelState: LabelState? = nil, detailTextLabelState: LabelState? = nil, imageViewState: ImageViewState? = nil, accessoryViewState: ViewState? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
         
         self.textLabelState = textLabelState
         self.detailTextLabelState = detailTextLabelState
@@ -327,6 +374,7 @@ public struct TableViewCellState: ITableViewCellState, Codable, Hashable {
     
 }
 
+// TODO: - 1 REVIEW
 public struct SectionViewState<S: IViewState, T: IViewState>: IStringIdentifiable {
     
     public var id: String
@@ -346,51 +394,37 @@ extension SectionViewState: Equatable where S: Equatable, T: Equatable { }
 
 public struct ProgressViewState: IProgressViewState, Codable, Hashable {
     
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
-    public var alpha: CGFloat?
     
-    /// UIProgressView
-    public var progressState: ProgressState?
+    // UIProgressView
+    public var progress: Float?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, progressState: ProgressState? = nil) {
+    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, progress: Float? = nil) {
         
         self.id = id
         self.tag = tag
         self.isHidden = isHidden
         self.isEnabled = isEnabled
-        self.alpha = alpha
-        self.progressState = progressState
+        self.progress = progress
         
     }
        
 }
 
+// TODO: - 0 EXTRACT
 public struct NavigationItemState: INavigationItemState, Codable, Hashable {
     
-    /// UIView
-    public var id: String?
-    public var tag: Int?
-    public var isHidden: Bool?
-    public var isEnabled: Bool?
-    public var alpha: CGFloat?
-    
-    /// UINavigationItem
+    // UINavigationItem
     public var title: String?
     public var prompt: String?
     public var backButtonTitle: String?
     public var hidesBackButton: Bool?
     
-    public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, alpha: CGFloat? = nil, title: String? = nil, prompt: String? = nil, backButtonTitle: String? = nil, hidesBackButton: Bool? = nil) {
-        
-        self.id = id
-        self.tag = tag
-        self.isHidden = isHidden
-        self.isEnabled = isEnabled
-        self.alpha = alpha
+    public init(title: String? = nil, prompt: String? = nil, backButtonTitle: String? = nil, hidesBackButton: Bool? = nil) {
         
         self.title = title
         self.prompt = prompt
