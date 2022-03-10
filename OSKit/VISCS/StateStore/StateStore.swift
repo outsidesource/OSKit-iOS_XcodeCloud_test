@@ -6,8 +6,6 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-import OSKit
-
 /// A generic class implementing `IStateStore`
 public class StateStore<StateType: IState>: IStateStore {
     

@@ -6,8 +6,6 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-import OSKit
-
 /// Describes the state of an Async operation
 public enum AsyncState<ElementType, ErrorType: Error>: IState {
     

@@ -518,11 +518,11 @@
 		1B5FCC5327DA9FDD005C8887 /* State */ = {
 			isa = PBXGroup;
 			children = (
-				1B5750C3266FF8B2002AB349 /* IIdentifiableState.swift */,
-				1B5750C2266FF8B2002AB349 /* IViewState.swift */,
-				1B5750C0266FF8B2002AB349 /* IState.swift */,
-				1B5750BF266FF8B2002AB349 /* IViewStateRepresentable.swift */,
 				1B5FCC5427DA9FDD005C8887 /* AsyncState.swift */,
+				1B5750C3266FF8B2002AB349 /* IIdentifiableState.swift */,
+				1B5750C0266FF8B2002AB349 /* IState.swift */,
+				1B5750C2266FF8B2002AB349 /* IViewState.swift */,
+				1B5750BF266FF8B2002AB349 /* IViewStateRepresentable.swift */,
 				1B5FCC5527DA9FDD005C8887 /* Result+AsyncState.swift */,
 			);
 			path = State;

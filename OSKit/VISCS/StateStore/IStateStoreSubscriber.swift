@@ -6,8 +6,6 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-import OSKit
-
 /// A type that subscribes to `IStateStore` and is notified when the StateStore mutates its state
 public protocol IStateStoreSubscriber: AnyObject {
     

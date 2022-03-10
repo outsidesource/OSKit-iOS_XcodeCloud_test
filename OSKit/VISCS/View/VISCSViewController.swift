@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import OSKit
 
 open class VISCSViewController<StateType: IState>: UIViewController, StoryboardInstantiatable {
     
