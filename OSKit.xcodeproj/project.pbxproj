@@ -14,13 +14,6 @@
 		1B366DD726F0F48A00A4A13C /* VISERTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */; };
 		1B366DE726F0FD0E00A4A13C /* View+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DE526F0FD0E00A4A13C /* View+OS.swift */; };
 		1B366DE826F0FD0E00A4A13C /* Binding+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DE626F0FD0E00A4A13C /* Binding+OS.swift */; };
-		1B366DEE26F0FECF00A4A13C /* CombineInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DEA26F0FECF00A4A13C /* CombineInteractor.swift */; };
-		1B366DEF26F0FECF00A4A13C /* CombineStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DEB26F0FECF00A4A13C /* CombineStateStore.swift */; };
-		1B366DF026F0FECF00A4A13C /* ICombineStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DEC26F0FECF00A4A13C /* ICombineStateStore.swift */; };
-		1B366DF126F0FECF00A4A13C /* CombineStatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DED26F0FECF00A4A13C /* CombineStatePresenter.swift */; };
-		1B366DF726F1012700A4A13C /* SwiftUICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */; };
-		1B366DF826F1012700A4A13C /* SwiftUICoordinatorTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */; };
-		1B366DF926F1012700A4A13C /* CoordinatorViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */; };
 		1B366DFC26F1025F00A4A13C /* CombineReSwiftStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B366DFB26F1025F00A4A13C /* CombineReSwiftStore.swift */; };
 		1B41C96926E7E01C003D800C /* RxCoordinatorReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */; };
 		1B574F9A266FF290002AB349 /* TimeInterval+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B574F87266FF290002AB349 /* TimeInterval+OS.swift */; };
@@ -186,13 +179,6 @@
 		1B366DD626F0F48A00A4A13C /* VISERTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VISERTableViewController.swift; sourceTree = "<group>"; };
 		1B366DE526F0FD0E00A4A13C /* View+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+OS.swift"; sourceTree = "<group>"; };
 		1B366DE626F0FD0E00A4A13C /* Binding+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Binding+OS.swift"; sourceTree = "<group>"; };
-		1B366DEA26F0FECF00A4A13C /* CombineInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineInteractor.swift; sourceTree = "<group>"; };
-		1B366DEB26F0FECF00A4A13C /* CombineStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineStateStore.swift; sourceTree = "<group>"; };
-		1B366DEC26F0FECF00A4A13C /* ICombineStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ICombineStateStore.swift; sourceTree = "<group>"; };
-		1B366DED26F0FECF00A4A13C /* CombineStatePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineStatePresenter.swift; sourceTree = "<group>"; };
-		1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUICoordinator.swift; sourceTree = "<group>"; };
-		1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUICoordinatorTransition.swift; sourceTree = "<group>"; };
-		1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModifier.swift; sourceTree = "<group>"; };
 		1B366DFB26F1025F00A4A13C /* CombineReSwiftStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombineReSwiftStore.swift; sourceTree = "<group>"; };
 		1B41C96826E7E01C003D800C /* RxCoordinatorReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCoordinatorReducer.swift; sourceTree = "<group>"; };
 		1B574F87266FF290002AB349 /* TimeInterval+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+OS.swift"; sourceTree = "<group>"; };
@@ -380,27 +366,6 @@
 				1B366DE526F0FD0E00A4A13C /* View+OS.swift */,
 			);
 			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		1B366DE926F0FECF00A4A13C /* VISER-Combine */ = {
-			isa = PBXGroup;
-			children = (
-				1B366DEA26F0FECF00A4A13C /* CombineInteractor.swift */,
-				1B366DEB26F0FECF00A4A13C /* CombineStateStore.swift */,
-				1B366DEC26F0FECF00A4A13C /* ICombineStateStore.swift */,
-				1B366DED26F0FECF00A4A13C /* CombineStatePresenter.swift */,
-			);
-			path = "VISER-Combine";
-			sourceTree = "<group>";
-		};
-		1B366DF226F100F500A4A13C /* VISER-SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				1B366DF426F1012700A4A13C /* SwiftUICoordinator.swift */,
-				1B366DF526F1012700A4A13C /* SwiftUICoordinatorTransition.swift */,
-				1B366DF626F1012700A4A13C /* CoordinatorViewModifier.swift */,
-			);
-			path = "VISER-SwiftUI";
 			sourceTree = "<group>";
 		};
 		1B366DFA26F1025F00A4A13C /* ReSwift-Combine */ = {
@@ -788,8 +753,6 @@
 				1B57509A266FF85B002AB349 /* RxUIKit */,
 				1B5750A7266FF87B002AB349 /* UserNotifications */,
 				1B5750B0266FF8B2002AB349 /* VISER */,
-				1B366DE926F0FECF00A4A13C /* VISER-Combine */,
-				1B366DF226F100F500A4A13C /* VISER-SwiftUI */,
 				1B5750F2266FF8D9002AB349 /* RxVISER */,
 			);
 			path = OSKit;
@@ -980,7 +943,6 @@
 				1B7FEFC82354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift in Sources */,
 				1B5750AA266FF87B002AB349 /* UNNotificationAttachment+OS.swift in Sources */,
 				1B5750A2266FF85B002AB349 /* OSNavigationController+Rx.swift in Sources */,
-				1B366DEF26F0FECF00A4A13C /* CombineStateStore.swift in Sources */,
 				1B5750E1266FF8B2002AB349 /* IIdentifiableState.swift in Sources */,
 				1B0087A9266FFEDC00906690 /* RxVISERNavigationCoordinator.swift in Sources */,
 				1B5750EC266FF8B2002AB349 /* ICoordinator.swift in Sources */,
@@ -1013,23 +975,19 @@
 				1B5750D9266FF8B2002AB349 /* VISERInteractor.swift in Sources */,
 				1B5750E7266FF8B2002AB349 /* StateContainerAction.swift in Sources */,
 				1B575104266FF8D9002AB349 /* RxStateStore.swift in Sources */,
-				1B366DF926F1012700A4A13C /* CoordinatorViewModifier.swift in Sources */,
 				1B575080266FF81E002AB349 /* UIImage+OS.swift in Sources */,
 				1B366DE826F0FD0E00A4A13C /* Binding+OS.swift in Sources */,
 				1B574FA0266FF290002AB349 /* Data+OS.swift in Sources */,
 				1B57501A266FF5CC002AB349 /* ObservableAction+ReSwift.swift in Sources */,
 				1B5750D4266FF8B2002AB349 /* ITableViewDelegate.swift in Sources */,
-				1B366DF826F1012700A4A13C /* SwiftUICoordinatorTransition.swift in Sources */,
 				1B5750DC266FF8B2002AB349 /* IIdentifiableReducer.swift in Sources */,
 				1B57508A266FF81E002AB349 /* UINavigationController+OS.swift in Sources */,
-				1B366DEE26F0FECF00A4A13C /* CombineInteractor.swift in Sources */,
 				1B5750DB266FF8B2002AB349 /* IReducer.swift in Sources */,
 				1B575032266FF70F002AB349 /* Characteristic+OS.swift in Sources */,
 				1B574FDD266FF4A5002AB349 /* ModuleAssemblerConfig.swift in Sources */,
 				1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */,
 				1B57507B266FF81E002AB349 /* UIViewController+Storyboard.swift in Sources */,
 				1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */,
-				1B366DF726F1012700A4A13C /* SwiftUICoordinator.swift in Sources */,
 				1B5750E9266FF8B2002AB349 /* IActionDispatching.swift in Sources */,
 				1B5750AB266FF87B002AB349 /* UNNotificationSound+OS.swift in Sources */,
 				1B574FA5266FF290002AB349 /* OSLocaleString.swift in Sources */,
@@ -1060,7 +1018,6 @@
 				1B5750E5266FF8B2002AB349 /* IAction.swift in Sources */,
 				1B574FC5266FF34C002AB349 /* OSDeviceInformation.swift in Sources */,
 				1B574FA1266FF290002AB349 /* String+OS.swift in Sources */,
-				1B366DF026F0FECF00A4A13C /* ICombineStateStore.swift in Sources */,
 				1B57507F266FF81E002AB349 /* NSLayoutConstraint+OS.swift in Sources */,
 				1B575082266FF81E002AB349 /* OSNavigationController.swift in Sources */,
 				1B574FE8266FF4C2002AB349 /* OSLog.swift in Sources */,
@@ -1090,7 +1047,6 @@
 				1B57504C266FF79F002AB349 /* Int8+OS.swift in Sources */,
 				1B5750E4266FF8B2002AB349 /* IStateStore.swift in Sources */,
 				1B5750DF266FF8B2002AB349 /* IStateContainer.swift in Sources */,
-				1B366DF126F0FECF00A4A13C /* CombineStatePresenter.swift in Sources */,
 				1B574FA6266FF290002AB349 /* OSTuple.swift in Sources */,
 				1B574FA9266FF290002AB349 /* Bundle+OS.swift in Sources */,
 				1B574F9F266FF290002AB349 /* OSVoid.swift in Sources */,
