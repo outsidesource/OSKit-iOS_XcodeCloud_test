@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OSKit"
-  s.version      = "0.9.0"
+  s.version      = "0.11.0"
   s.summary      = "Outside Source OSKit"
 
   # This description is used to generate tags and improve search results.

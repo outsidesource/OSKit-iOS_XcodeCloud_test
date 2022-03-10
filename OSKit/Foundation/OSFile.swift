@@ -14,4 +14,9 @@ public struct OSFile: Equatable {
         self.title = title
         self.filename = filename
     }
+    
+    public var bundleURL: URL? {
+        Bundle.main.url(forResource: self.filename, withExtension: nil)
+    }
+
 }
