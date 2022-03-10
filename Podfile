@@ -13,7 +13,7 @@ target 'OSKit' do
   pod 'RxSwiftExt', '5.2.0'
   pod 'RxCocoa', '5.1.1'
   pod 'RxDataSources', '4.0.1'
-  pod 'RxBluetoothKit', '6.0.0'
+  pod 'RxBluetoothKit', :git => 'https://github.com/chamira-at/RxBluetoothKit.git', :branch => 'ios-15-support'
   pod 'XCoordinator', '2.0.7'
   pod 'XCoordinator/RxSwift', '2.0.7'
   pod 'RxAlamofire', '5.1.0'

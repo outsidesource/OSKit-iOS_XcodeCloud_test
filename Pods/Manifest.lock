@@ -39,7 +39,7 @@ DEPENDENCIES:
   - Resolver (= 1.4.0)
   - ReSwift (= 6.0.0)
   - RxAlamofire (= 5.1.0)
-  - RxBluetoothKit (= 6.0.0)
+  - RxBluetoothKit (from `https://github.com/chamira-at/RxBluetoothKit.git`, branch `ios-15-support`)
   - RxCocoa (= 5.1.1)
   - RxDataSources (= 4.0.1)
   - RxSwift (= 5.1.1)
@@ -54,13 +54,22 @@ SPEC REPOS:
     - Resolver
     - ReSwift
     - RxAlamofire
-    - RxBluetoothKit
     - RxCocoa
     - RxDataSources
     - RxRelay
     - RxSwift
     - RxSwiftExt
     - XCoordinator
+
+EXTERNAL SOURCES:
+  RxBluetoothKit:
+    :branch: ios-15-support
+    :git: https://github.com/chamira-at/RxBluetoothKit.git
+
+CHECKOUT OPTIONS:
+  RxBluetoothKit:
+    :commit: 086f4598f2a203f8b415d79c396178e3927f075e
+    :git: https://github.com/chamira-at/RxBluetoothKit.git
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
@@ -76,6 +85,6 @@ SPEC CHECKSUMS:
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
 
-PODFILE CHECKSUM: 8d72188a40cd25b0da7a07f5139a57500ee27021
+PODFILE CHECKSUM: a3a352168c556c708c98ff0f02098a19b33f065a
 
 COCOAPODS: 1.11.2
