@@ -1,5 +1,5 @@
 //
-//  ObservableType+IViewState.swift
+//  ObservableType+OS.swift
 //  OSKit
 //
 //  Created by Brody Robertson.
@@ -9,7 +9,6 @@
 import RxSwift
 import RxSwiftExt
 
-// TODO: - 0 EXTRACT to ObservableType+OS
 public extension ObservableType where Element: Equatable {
     
     func unwrapDistinctUntilChanged<Result>() -> Observable<Result> where Element == Result? {

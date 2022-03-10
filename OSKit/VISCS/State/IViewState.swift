@@ -6,10 +6,6 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-import CoreGraphics
-
-// TODO: - 0REMOVE { set } requirement
-
 public protocol IViewState: IState, Equatable {
     var id: String? { get set }
     var tag: Int? { get set }
