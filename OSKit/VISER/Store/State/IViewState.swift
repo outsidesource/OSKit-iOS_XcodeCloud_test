@@ -10,7 +10,7 @@ import CoreGraphics
 
 // TODO: - 0REMOVE { set } requirement
 
-public protocol IViewState: IState {
+public protocol IViewState: IState, Equatable {
     var id: String? { get set }
     var tag: Int? { get set }
     var isHidden: Bool? { get set }
@@ -76,14 +76,23 @@ public protocol ITextFieldState: IControlState {
 // MARK: - Composite Views
 
 public protocol ITableViewCellState: IViewState {
-    var textLabelState: LabelState? { get }
-    var detailTextLabelState: LabelState? { get }
-    var imageViewState: ImageViewState? { get }
-    var accessoryViewState: ViewState? { get }
+    
+    associatedtype TextLabelStateType: ILabelState
+    var textLabelState: TextLabelStateType? { get }
+    
+    associatedtype DetailTextLabelStateType: ILabelState
+    var detailTextLabelState: DetailTextLabelStateType? { get }
+    
+    associatedtype ImageViewStateType: IImageViewState
+    var imageViewState: ImageViewStateType? { get }
+    
+    associatedtype ViewStateType: IViewState
+    var accessoryViewState: ViewStateType? { get }
+    
 }
 
 // TODO: - 0 EXTRACT
-public protocol INavigationItemState: IState {
+public protocol INavigationItemState: IState, Equatable {
     var title: String? { get set }
     var prompt: String? { get set }
     var backButtonTitle: String? { get set }
@@ -112,14 +121,14 @@ public struct ViewState: IViewState, Codable, Hashable {
 
 public struct ActivityIndicatorViewState: IActivityIndicatorViewState, Codable, Hashable {
     
-    /// UILabel
-    public var isAnimating: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIActivityIndicatorView
+    public var isAnimating: Bool?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isAnimating: Bool? = nil) {
         
@@ -135,14 +144,14 @@ public struct ActivityIndicatorViewState: IActivityIndicatorViewState, Codable, 
 
 public struct ImageViewState: IImageViewState, Codable, Hashable {
     
-    /// UIImageView
-    public var imageName: String?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIImageView
+    public var imageName: String?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, imageName: String? = nil) {
         
@@ -158,14 +167,14 @@ public struct ImageViewState: IImageViewState, Codable, Hashable {
 
 public struct LabelState: ILabelState, Codable, Hashable {
     
-    /// UILabel
-    public var text: String?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UILabel
+    public var text: String?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, text: String? = nil) {
         
@@ -183,20 +192,20 @@ public struct LabelState: ILabelState, Codable, Hashable {
 
 public struct ButtonState: IButtonState, Codable, Hashable {
     
-    /// UIButton
-    public var title: String?
-    public var imageName: String?
-    public var backgroundImageName: String?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    public var isHighlighted: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UIButton
+    public var title: String?
+    public var imageName: String?
+    public var backgroundImageName: String?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, title: String? = nil, imageName: String? = nil, backgroundImageName: String? = nil) {
         
@@ -216,18 +225,18 @@ public struct ButtonState: IButtonState, Codable, Hashable {
 
 public struct SegmentedControlState: ISegmentedControlState, Codable, Hashable {
     
-    /// UISegmentedControl
-    public var selectedSegmentIndex: Int?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    public var isHighlighted: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UISegmentedControl
+    public var selectedSegmentIndex: Int?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, selectedSegmentIndex: Int? = nil) {
         
@@ -245,20 +254,20 @@ public struct SegmentedControlState: ISegmentedControlState, Codable, Hashable {
 
 public struct SliderState: ISliderState, Codable, Hashable {
     
-    /// UISlider
-    public var value: Float?
-    public var minimumValue: Float?
-    public var maximumValue: Float?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    public var isHighlighted: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UISlider
+    public var value: Float?
+    public var minimumValue: Float?
+    public var maximumValue: Float?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, value: Float? = nil, minimumValue: Float? = nil, maximumValue: Float? = nil) {
         
@@ -278,18 +287,18 @@ public struct SliderState: ISliderState, Codable, Hashable {
 
 public struct SwitchState: ISwitchState, Codable, Hashable {
     
-    /// UISwitch
-    public var isOn: Bool?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    public var isHighlighted: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UISwitch
+    public var isOn: Bool?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, isOn: Bool? = nil) {
         
@@ -307,18 +316,18 @@ public struct SwitchState: ISwitchState, Codable, Hashable {
 
 public struct TextFieldState: ITextFieldState, Codable, Hashable {
     
-    /// UITextField
-    public var text: String?
-    
-    /// UIControl
-    public var isSelected: Bool?
-    public var isHighlighted: Bool?
-    
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
+    
+    // UIControl
+    public var isSelected: Bool?
+    public var isHighlighted: Bool?
+    
+    // UITextField
+    public var text: String?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, isSelected: Bool? = nil, isHighlighted: Bool? = nil, isOn: Bool? = nil, text: String? = nil) {
         
@@ -337,13 +346,13 @@ public struct TextFieldState: ITextFieldState, Codable, Hashable {
 
 public struct TableViewCellState: ITableViewCellState, Codable, Hashable {
         
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
     
-    /// UITableViewCell
+    // UITableViewCell
     public var textLabelState: LabelState?
     public var detailTextLabelState: LabelState?
     public var imageViewState: ImageViewState?
@@ -385,13 +394,13 @@ extension SectionViewState: Equatable where S: Equatable, T: Equatable { }
 
 public struct ProgressViewState: IProgressViewState, Codable, Hashable {
     
-    /// UIView
+    // UIView
     public var id: String?
     public var tag: Int?
     public var isHidden: Bool?
     public var isEnabled: Bool?
     
-    /// UIProgressView
+    // UIProgressView
     public var progress: Float?
     
     public init(id: String? = nil, tag: Int? = nil, isHidden: Bool? = nil, isEnabled: Bool? = nil, progress: Float? = nil) {
@@ -409,7 +418,7 @@ public struct ProgressViewState: IProgressViewState, Codable, Hashable {
 // TODO: - 0 EXTRACT
 public struct NavigationItemState: INavigationItemState, Codable, Hashable {
     
-    /// UINavigationItem
+    // UINavigationItem
     public var title: String?
     public var prompt: String?
     public var backButtonTitle: String?
