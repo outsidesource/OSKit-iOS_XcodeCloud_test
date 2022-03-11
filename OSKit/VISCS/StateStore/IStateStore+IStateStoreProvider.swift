@@ -6,7 +6,7 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-public extension IStateStore where Self: IStateStoreProvider {
+public extension IStateStore where Self: IStateStoreProvider, StateStoreType.StateType == StateType {
     
     var state: StateType? {
         stateStore.state

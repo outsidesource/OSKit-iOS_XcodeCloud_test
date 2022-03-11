@@ -8,7 +8,6 @@
 
 /// A type the provides a `IStateStore` matching it's own state type
 public protocol IStateStoreProvider {
-    associatedtype StateType
-    associatedtype StateStoreType: IStateStore where StateStoreType.StateType == StateType
+    associatedtype StateStoreType: IStateStore
     var stateStore: StateStoreType { get }
 }
