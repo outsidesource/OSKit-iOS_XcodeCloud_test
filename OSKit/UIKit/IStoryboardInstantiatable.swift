@@ -9,13 +9,13 @@
 import UIKit
 
 // TODO: - 0 REVIEW & RENAME to IStoryboardInstantiatable
-public protocol StoryboardInstantiatable: AnyObject {
+public protocol IStoryboardInstantiatable: AnyObject {
     
     static var storyboardIdentifier: String { get }
     
 }
 
-public extension StoryboardInstantiatable {
+public extension IStoryboardInstantiatable {
     
     static var storyboardName: String {
         return String(describing: self)
@@ -27,7 +27,7 @@ public extension StoryboardInstantiatable {
     
 }
 
-public extension StoryboardInstantiatable where Self: UIViewController {
+public extension IStoryboardInstantiatable where Self: UIViewController {
     
     static func initWithStoryboard(name: String = storyboardName, bundle storyboardBundleOrNil: Bundle? = nil, withIdentifier identifier: String = storyboardIdentifier) -> Self? {
         guard let viewController = UIStoryboard.viewController(name: name, bundle: storyboardBundleOrNil, withIdentifier: identifier) as? Self else {

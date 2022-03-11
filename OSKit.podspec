@@ -126,8 +126,14 @@ Pod::Spec.new do |s|
   end
   
   s.subspec "Build" do |build|
-    build.source_files = "OSKit/OSBuild/**/*.{h,m}", "OSKit/OSBuild/**/*.{swift}"
+    build.source_files = "OSKit/Build/**/*.{h,m}", "OSKit/Build/**/*.{swift}"
     build.dependency "OSKit/Core"
+  end
+  
+  s.subspec "Build+Resolver" do |build_resolver|
+    resolver.source_files = "OSKit/Build+Resolver/**/*.{h,m}", "OSKit/Build+Resolver/**/*.{swift}"
+    resolver.dependency "OSKit/Build"
+    resolver.dependency "Resolver", "~> 1.4"
   end
   
   s.subspec "Log" do |log|
@@ -140,13 +146,6 @@ Pod::Spec.new do |s|
     rxlog.dependency "OSKit/Log"
     rxlog.dependency "RxSwift", "~> 5.1"
     rxlog.dependency "RxCocoa", "~> 5.1"
-  end
-  
-  # UPDATE paths to Resolver
-  s.subspec "Build+Resolver" do |resolver|
-    resolver.source_files = "OSKit/Resolver/**/*.{h,m}", "OSKit/Resolver/**/*.{swift}"
-    resolver.dependency "OSKit/Build"
-    resolver.dependency "Resolver", "~> 1.4"
   end
   
   s.subspec "RxBluetoothKit" do |rxbluetoothkit|
@@ -167,15 +166,7 @@ Pod::Spec.new do |s|
     uikit.dependency "OSKit/CoreGraphics"
     uikit.framework  = "UIKit"
   end
-  
-  # REMOVE?
-  s.subspec "RxUIKit" do |rxuikit|
-    rxuikit.source_files = "OSKit/RxUIKit/**/*.{h,m}", "OSKit/RxUIKit/**/*.{swift}"
-    rxuikit.dependency "OSKit/UIKit"
-    rxuikit.dependency "RxSwift", "~> 5.1"
-    rxuikit.dependency "RxSwiftExt", "~> 5.2"
-  end
-    
+      
   s.subspec "UserNotifications" do |usernotifications|
     usernotifications.source_files = "OSKit/UserNotifications/**/*.{h,m}", "OSKit/UserNotifications/**/*.{swift}"
     usernotifications.dependency "OSKit/Core"

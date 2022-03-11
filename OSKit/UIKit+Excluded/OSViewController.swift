@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class OSViewController: UIViewController, IViewController, StoryboardInstantiatable {
+open class OSViewController: UIViewController, IViewController, IStoryboardInstantiatable {
 
     // TODO: - 2 CONSIDER removal if we are able to get equivalent Rx callbacks from Coordinator
     /// This is called directly by XCoordinator

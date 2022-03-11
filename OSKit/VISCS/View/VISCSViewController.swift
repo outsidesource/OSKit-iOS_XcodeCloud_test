@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class VISCSViewController<StateType: IState>: UIViewController, StoryboardInstantiatable, IVISCSViewController {
+open class VISCSViewController<StateType: IState>: UIViewController, IStoryboardInstantiatable, IVISCSViewController {
     
     /// The viewDelegate of ViewController lifecycle
     ///

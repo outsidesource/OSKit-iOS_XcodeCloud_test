@@ -42,7 +42,7 @@ public extension UIApplication {
         
     }
     
-    /// This would likely get rejected by app review
+    // This would likely get rejected by app review
 //    static func openBluetoothSettings() {
 //
 //        guard let url = URL(string: "App-prefs:root=Bluetooth") else {
