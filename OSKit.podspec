@@ -131,9 +131,9 @@ Pod::Spec.new do |s|
   end
   
   s.subspec "Build+Resolver" do |build_resolver|
-    resolver.source_files = "OSKit/Build+Resolver/**/*.{h,m}", "OSKit/Build+Resolver/**/*.{swift}"
-    resolver.dependency "OSKit/Build"
-    resolver.dependency "Resolver", "~> 1.4"
+    build_resolver.source_files = "OSKit/Build+Resolver/**/*.{h,m}", "OSKit/Build+Resolver/**/*.{swift}"
+    build_resolver.dependency "OSKit/Build"
+    build_resolver.dependency "Resolver", "~> 1.4"
   end
   
   s.subspec "Log" do |log|
@@ -194,7 +194,10 @@ Pod::Spec.new do |s|
     viscs_rxdatasources.dependency "RxDataSources", "~> 4.0"
   end
   
-  # TODO ADD XCoordinator
+  s.subspec "XCoordinator" do |xcoordinator|
+    xcoordinator.source_files = "OSKit/XCoordinator/**/*.{h,m}", "OSKit/XCoordinator/**/*.{swift}"
+    xcoordinator.dependency "XCoordinator", "~> 2.0"
+  end
     
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
