@@ -202,6 +202,8 @@ Pod::Spec.new do |s|
     viscs_rxdatasources.dependency "OSKit/VISCS+Rx"
     viscs_rxdatasources.dependency "RxDataSources", "~> 4.0.1"
   end
+  
+  # TODO ADD XCoordinator
     
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #

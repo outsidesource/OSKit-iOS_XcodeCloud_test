@@ -40,7 +40,7 @@ public class StateStore<StateType: IState>: IStateStore {
     
     public func addSubscriber(_ subscriber: IStateStoreSubscriber, isRetained: Bool = false) {
         
-        // TODO: ADD evaluation of current subscribers to prevent duplicate subscription
+        // TODO: - 0 ADD evaluation of current subscribers to prevent duplicate subscription
         
         let box = StateStoreSubscriberBox(subscriber, isRetained: isRetained)
         _addSubscriberBox(box)

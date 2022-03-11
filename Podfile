@@ -6,22 +6,31 @@ target 'OSKit' do
   use_frameworks!
 
   # Pods for OSKit
-  # TODO: 0 create subspecs for dependencies to allow optional adoption of third party extensions
-  pod 'Resolver', '1.4.0'
-  pod 'ReSwift', '6.0.0'
-  pod 'RxSwift', '5.1.1'
-  pod 'RxSwiftExt', '5.2.0'
-  pod 'RxCocoa', '5.1.1'
-  pod 'RxDataSources', '4.0.1'
+  pod 'Resolver', '~> 1.4.0'
+  pod 'RxSwift', '~> 5.1.1'
+  pod 'RxSwiftExt', '~> 5.2.0'
+  pod 'RxCocoa', '~> 5.1.1'
+  pod 'RxDataSources', '~> 4.0.1'
   pod 'RxBluetoothKit', :git => 'https://github.com/chamira-at/RxBluetoothKit.git', :branch => 'ios-15-support'
-  pod 'XCoordinator', '2.0.7'
-  pod 'XCoordinator/RxSwift', '2.0.7'
+  pod 'XCoordinator', '~> 2.0.7'
+  #pod 'XCoordinator/RxSwift', '2.0.7'
   pod 'RxAlamofire', '5.1.0'
-  # TODO: 0 add linting
+  # TODO: - 0 add SwiftLint
   
   target 'OSKitTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
+end
+
+post_install do |installer|
+  
+  # Remove warnings for deployment target
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
+  end
+  
 end
