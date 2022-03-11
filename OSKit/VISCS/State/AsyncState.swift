@@ -40,7 +40,7 @@ public enum AsyncState<ElementType, ErrorType: Error>: IState {
     case error(Error)
     
     /// Returns true if the Async operation is executing
-    var isBusy: Bool {
+    public var isBusy: Bool {
         
         switch self {
         case .busy, .element:

@@ -7,7 +7,7 @@
 //
 
 /// A generic class implementing `IInteractor`
-public class Interactor<StateType: IState>: IInteractor {
+open class Interactor<StateType: IState>: IInteractor {
         
     public let stateStore = StateStore<StateType>()
     
