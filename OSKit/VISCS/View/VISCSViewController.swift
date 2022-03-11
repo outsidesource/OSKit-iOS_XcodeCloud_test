@@ -8,13 +8,14 @@
 
 import UIKit
 
-// TODO: - 0 ADD IVISCSViewController
-
-open class VISCSViewController<StateType: IState>: UIViewController, StoryboardInstantiatable {
+open class VISCSViewController<StateType: IState>: UIViewController, StoryboardInstantiatable, IVISCSViewController {
     
     /// The viewDelegate of ViewController lifecycle
     ///
     /// - Note: The viewDelegate is strong because the ViewController should retain the VIewInteractor (IViewDelegate)
+    ///  We chose not to make ViewController generic about IViewDelegate becuase it is not part of its type identity
+    ///  Instead we will favor composition of more specific delegates in subclasses similar to UIKit ViewControllers
+    ///  Ex. UITableViewDelegate: UIScrollViewDelegate
     public var viewDelegate: IViewDelegate?
     
     /// The StateStore which provides StateType to the ViewController

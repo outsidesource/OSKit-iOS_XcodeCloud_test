@@ -120,6 +120,7 @@
 		1B5FCC5F27DA9FDD005C8887 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5227DA9FDD005C8887 /* Interactor.swift */; };
 		1B5FCC6027DA9FDD005C8887 /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5427DA9FDD005C8887 /* AsyncState.swift */; };
 		1B5FCC6127DA9FDD005C8887 /* Result+AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5527DA9FDD005C8887 /* Result+AsyncState.swift */; };
+		1B5FCC6727DBB151005C8887 /* IVISCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC6627DBB151005C8887 /* IVISCSViewController.swift */; };
 		1B7FEFC82354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */; };
 		1B921FCE257F360A0036B5DA /* AlamofireValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */; };
 		1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */; };
@@ -258,6 +259,7 @@
 		1B5FCC5227DA9FDD005C8887 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		1B5FCC5427DA9FDD005C8887 /* AsyncState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
 		1B5FCC5527DA9FDD005C8887 /* Result+AsyncState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+AsyncState.swift"; sourceTree = "<group>"; };
+		1B5FCC6627DBB151005C8887 /* IVISCSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVISCSViewController.swift; sourceTree = "<group>"; };
 		1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StaticTransitionAnimation+OS.swift"; sourceTree = "<group>"; };
 		1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireValidationError.swift; sourceTree = "<group>"; };
 		1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkReachabilityManager+OS.swift"; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 			children = (
 				1B5750B2266FF8B2002AB349 /* ITableViewDelegate.swift */,
 				1B5750B4266FF8B2002AB349 /* IViewDelegate.swift */,
+				1B5FCC6627DBB151005C8887 /* IVISCSViewController.swift */,
 				1B5FCC4727DA9FDC005C8887 /* VISCSViewController.swift */,
 			);
 			path = View;
@@ -846,6 +849,7 @@
 				1B575089266FF81E002AB349 /* OSViewController.swift in Sources */,
 				1B575091266FF81E002AB349 /* UIViewTag.swift in Sources */,
 				1B575083266FF81E002AB349 /* AccessibilityState.swift in Sources */,
+				1B5FCC6727DBB151005C8887 /* IVISCSViewController.swift in Sources */,
 				1B575052266FF79F002AB349 /* Optional+OS.swift in Sources */,
 				1B575084266FF81E002AB349 /* OSButton.swift in Sources */,
 				1B575081266FF81E002AB349 /* OSTextField.swift in Sources */,
