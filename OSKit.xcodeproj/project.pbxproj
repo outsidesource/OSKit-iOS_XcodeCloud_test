@@ -404,7 +404,6 @@
 				1B575042266FF79F002AB349 /* Int8+OS.swift */,
 				1B575047266FF79F002AB349 /* JSONCodable.swift */,
 				1B575048266FF79F002AB349 /* Optional+OS.swift */,
-				1B575043266FF79F002AB349 /* OSError.swift */,
 				1B57503F266FF79F002AB349 /* Sequence+OS.swift */,
 				1B575044266FF79F002AB349 /* String+Crypto.swift */,
 				1B5FCC1A27DA8FC3005C8887 /* Box */,
@@ -530,15 +529,16 @@
 		1B5FCC6227DAA3EB005C8887 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				1B574F91266FF290002AB349 /* OSLocale.swift */,
+				1B574F88266FF290002AB349 /* IStringIdentifiable.swift */,
 				1B574F90266FF290002AB349 /* OSColor.swift */,
-				1B574F94266FF290002AB349 /* OSVersion.swift */,
-				1B574F97266FF290002AB349 /* OSSemanticVersion.swift */,
+				1B574FC4266FF34C002AB349 /* OSDeviceInformation.swift */,
+				1B575043266FF79F002AB349 /* OSError.swift */,
+				1B574F91266FF290002AB349 /* OSLocale.swift */,
 				1B574F92266FF290002AB349 /* OSLocaleString.swift */,
 				1B574F95266FF290002AB349 /* OSLocalizedString.swift */,
-				1B574FC4266FF34C002AB349 /* OSDeviceInformation.swift */,
+				1B574F97266FF290002AB349 /* OSSemanticVersion.swift */,
+				1B574F94266FF290002AB349 /* OSVersion.swift */,
 				1B574F8C266FF290002AB349 /* OSVoid.swift */,
-				1B574F88266FF290002AB349 /* IStringIdentifiable.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
