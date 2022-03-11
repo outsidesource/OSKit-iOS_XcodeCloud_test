@@ -34,7 +34,7 @@ public class OSLog {
         
     }
     
-    /// Verbose
+    // MARK: - Verbose
     
     public static func verbose(_ message: @autoclosure () -> Any = "", domain: Domain = .default, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         
@@ -64,7 +64,7 @@ public class OSLog {
         
     }
     
-    /// Debug
+    // MARK: - Debug
     
     public static func debug(_ message: @autoclosure () -> Any = "", domain: Domain = .default, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         
@@ -94,7 +94,7 @@ public class OSLog {
         
     }
 
-    /// Info
+    // MARK: - Info
     
     public static func info(_ message: @autoclosure () -> Any = "", domain: Domain = .default, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         
@@ -124,7 +124,7 @@ public class OSLog {
         
     }
     
-    /// Warn
+    // MARK: - Warn
     
     public static func warn(_ message: @autoclosure () -> Any = "", domain: Domain = .default, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         
@@ -154,7 +154,7 @@ public class OSLog {
 
     }
     
-    /// Error
+    // MARK: - Error
     
     public static func error(_ message: @autoclosure () -> Any = "", domain: Domain = .default, _ file: String = #file, _ function: String = #function, _ line: Int = #line) {
         
@@ -202,7 +202,7 @@ public extension OSLog {
 
 public extension OSLog.Domain {
     
-    /// OSLog domains
+    // OSLog domains
     static let `default` = OSLog.Domain("default")
     static let all = OSLog.Domain("all")
     
@@ -210,14 +210,13 @@ public extension OSLog.Domain {
     static let debug = OSLog.Domain("debug")
     static let production = OSLog.Domain("production")
     
-    // TODO: - 2 CONSIDER extraction to OSKit/VISER
-    /// VISER Module Components
-    static let store = OSLog.Domain("store")
+    // TODO: - 2 CONSIDER extraction to OSKit/VISCS
+    // VISCS Module Components
+    static let stateStore = OSLog.Domain("stateStore")
     static let view = OSLog.Domain("view")
     static let interactor = OSLog.Domain("interactor")
     static let service = OSLog.Domain("service")
     static let coordinator = OSLog.Domain("coordinator")
-    static let reducer = OSLog.Domain("reducer")
     
 }
 

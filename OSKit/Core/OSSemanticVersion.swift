@@ -6,7 +6,7 @@
 //  Copyright © 2019 Outside Source. All rights reserved.
 //
 
-// TODO: 2 CONSIDER adding RawRepresentable conformance
+// TODO: - 2 CONSIDER adding RawRepresentable conformance
 public struct OSSemanticVersion: Codable, Equatable {
     
     public let major: UInt

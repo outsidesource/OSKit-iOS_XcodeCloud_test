@@ -45,7 +45,7 @@ extension StateStore.Reactive: IStateStoreSubscriber {
     
     public func didUpdate(_ state: StateType?) {
         self.didUpdateBehaviorSubject.onNext(state)
-        // TODO: CONSIDER onDispose { base.removeSubscriber(self) }
+        // TODO: - 0 CONSIDER onDispose { base.removeSubscriber(self) }
     }
     
 }
