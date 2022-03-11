@@ -63,13 +63,23 @@ public final class Resolver {
     public static var root: Resolver = main
     /// Default scope applied when registering new objects.
     public static var defaultScope: ResolverScope = .graph
+    /// Internal scope cache used for .scope(.container)
+    public lazy var cache: ResolverScope = ResolverScopeCache()
 
     // MARK: - Lifecycle
 
-    public init(parent: Resolver? = nil) {
-        if let parent = parent {
-            self.childContainers.append(parent)
+    /// Initialize with optional child scope.
+    /// If child is provided this container is searched for registrations first, then any of its children.
+    public init(child: Resolver? = nil) {
+        if let child = child {
+            self.childContainers.append(child)
         }
+    }
+
+    /// Initializer which maintained Resolver 1.0's "parent" functionality even when multiple child scopes were added in 1.4.3.
+    @available(swift, deprecated: 5.0, message: "Please use Resolver(child:).")
+    public init(parent: Resolver) {
+        self.childContainers.append(parent)
     }
 
     /// Adds a child container to this container. Children will be searched if this container fails to find a registration factory
@@ -226,8 +236,7 @@ public final class Resolver {
         lock.lock()
         defer { lock.unlock() }
         registrationCheck()
-        if let registration = root.lookup(type, name: name),
-            let service = registration.scope.resolve(resolver: root, registration: registration, args: args) {
+        if let registration = root.lookup(type, name: name), let service = registration.resolve(resolver: root, args: args) {
             return service
         }
         fatalError("RESOLVER: '\(Service.self):\(name?.rawValue ?? "NONAME")' not resolved. To disambiguate optionals use resolver.optional().")
@@ -246,8 +255,7 @@ public final class Resolver {
         lock.lock()
         defer { lock.unlock() }
         registrationCheck()
-        if let registration = lookup(type, name: name),
-            let service = registration.scope.resolve(resolver: self, registration: registration, args: args) {
+        if let registration = lookup(type, name: name), let service = registration.resolve(resolver: self, args: args) {
             return service
         }
         fatalError("RESOLVER: '\(Service.self):\(name?.rawValue ?? "NONAME")' not resolved. To disambiguate optionals use resolver.optional().")
@@ -265,8 +273,7 @@ public final class Resolver {
         lock.lock()
         defer { lock.unlock() }
         registrationCheck()
-        if let registration = root.lookup(type, name: name),
-            let service = registration.scope.resolve(resolver: root, registration: registration, args: args) {
+        if let registration = root.lookup(type, name: name), let service = registration.resolve(resolver: root, args: args) {
             return service
         }
         return nil
@@ -285,8 +292,7 @@ public final class Resolver {
         lock.lock()
         defer { lock.unlock() }
         registrationCheck()
-        if let registration = lookup(type, name: name),
-            let service = registration.scope.resolve(resolver: self, registration: registration, args: args) {
+        if let registration = lookup(type, name: name), let service = registration.resolve(resolver: self, args: args) {
             return service
         }
         return nil
@@ -455,7 +461,7 @@ public struct ResolverOptions<Service> {
 
     // MARK: - Parameters
 
-    internal var registration: ResolverRegistration<Service>
+    public var registration: ResolverRegistration<Service>
 
     // MARK: - Fuctionality
 
@@ -481,8 +487,14 @@ public struct ResolverOptions<Service> {
     ///
     @discardableResult
     public func resolveProperties(_ block: @escaping ResolverFactoryMutator<Service>) -> ResolverOptions<Service> {
-        registration.mutator = { (_ resolver: Resolver, _ service: Service, _ args: Resolver.Args) in
-            block(resolver, service)
+        registration.update { existingFactory in
+            return { (resolver, args) in
+                guard let service = existingFactory(resolver, args) else {
+                    return nil
+                }
+                block(resolver, service)
+                return service
+            }
         }
         return self
     }
@@ -495,7 +507,15 @@ public struct ResolverOptions<Service> {
     ///
     @discardableResult
     public func resolveProperties(_ block: @escaping ResolverFactoryMutatorArgumentsN<Service>) -> ResolverOptions<Service> {
-        registration.mutator = block
+        registration.update { existingFactory in
+            return { (resolver, args) in
+                guard let service = existingFactory(resolver, args) else {
+                    return nil
+                }
+                block(resolver, service, Resolver.Args(args))
+                return service
+            }
+        }
         return self
     }
 
@@ -515,12 +535,11 @@ public struct ResolverOptions<Service> {
 /// ResolverRegistration base class provides storage for the registration keys, scope, and property mutator.
 public final class ResolverRegistration<Service> {
 
-    fileprivate let key: Int
-    fileprivate let cacheKey: String
-    fileprivate let factory: ResolverFactoryAnyArguments<Service>
-
+    public let key: Int
+    public let cacheKey: String
+    
+    fileprivate var factory: ResolverFactoryAnyArguments<Service>
     fileprivate var scope: ResolverScope = Resolver.defaultScope
-    fileprivate var mutator: ResolverFactoryMutatorArgumentsN<Service>?
     
     fileprivate weak var resolver: Resolver?
 
@@ -535,12 +554,19 @@ public final class ResolverRegistration<Service> {
         self.factory = factory
     }
 
+    /// Called by Resolver containers to resolve a registration. Depending on scope may return a previously cached instance.
     public final func resolve(resolver: Resolver, args: Any?) -> Service? {
-        guard let service = factory(resolver, args) else {
-            return nil
-        }
-        self.mutator?(resolver, service, Resolver.Args(args))
-        return service
+        return scope.resolve(registration: self, resolver: resolver, args: args)
+    }
+    
+    /// Called by Resolver scopes to instantiate a new instance of a service.
+    public final func instantiate(resolver: Resolver, args: Any?) -> Service? {
+        return factory(resolver, args)
+    }
+    
+    /// Called by ResolverOptions to wrap a given service factory with new behavior.
+    public final func update(factory modifier: (_ factory: @escaping ResolverFactoryAnyArguments<Service>) -> ResolverFactoryAnyArguments<Service>) {
+        self.factory = modifier(factory)
     }
 
 }
@@ -549,7 +575,8 @@ public final class ResolverRegistration<Service> {
 
 /// Resolver scopes exist to control when resolution occurs and how resolved instances are cached. (If at all.)
 public protocol ResolverScopeType: AnyObject {
-    func resolve<Service>(resolver: Resolver, registration: ResolverRegistration<Service>, args: Any?) -> Service?
+    func resolve<Service>(registration: ResolverRegistration<Service>, resolver: Resolver, args: Any?) -> Service?
+    func reset()
 }
 
 public class ResolverScope: ResolverScopeType {
@@ -558,6 +585,8 @@ public class ResolverScope: ResolverScopeType {
 
     /// All application scoped services exist for lifetime of the app. (e.g Singletons)
     public static let application = ResolverScopeCache()
+    /// Proxy to container's scope. Cache type depends on type supplied to container (default .cache)
+    public static let container = ResolverScopeContainer()
     /// Cached services exist for lifetime of the app or until their cache is reset.
     public static let cached = ResolverScopeCache()
     /// Graph services are initialized once and only once during a given resolution cycle. This is the default scope.
@@ -565,28 +594,18 @@ public class ResolverScope: ResolverScopeType {
     /// Shared services persist while strong references to them exist. They're then deallocated until the next resolve.
     public static let shared = ResolverScopeShare()
     /// Unique services are created and initialized each and every time they're resolved.
-    public static let unique = ResolverScopeUnique()
+    public static let unique = ResolverScope()
 
-    // abstract base for class never called
-    public func resolve<Service>(resolver: Resolver, registration: ResolverRegistration<Service>, args: Any?) -> Service? {
-        fatalError("abstract")
+    public init() {}
+    
+    /// Core scope resolution simply instantiates new instance every time it's called (e.g. .unique)
+    public func resolve<Service>(registration: ResolverRegistration<Service>, resolver: Resolver, args: Any?) -> Service? {
+        return registration.instantiate(resolver: resolver, args: args)
     }
-}
-
-extension Resolver {
-
-    // Resolver scope definitions maintained for compatibility with previous usage.
-    @available(swift, deprecated: 4.1, message: "Please use .application to access scope.")
-    public static let application = ResolverScope.application
-    @available(swift, deprecated: 4.1, message: "Please use .cached to access scope.")
-    public static let cached = ResolverScope.cached
-    @available(swift, deprecated: 4.1, message: "Please use .graph to access scope.")
-    public static let graph = ResolverScope.graph
-    @available(swift, deprecated: 4.1, message: "Please use .shared to access scope.")
-    public static let shared = ResolverScope.shared
-    @available(swift, deprecated: 4.1, message: "Please use .unique to access scope.")
-    public static let unique = ResolverScope.unique
-
+    
+    public func reset() {
+        // nothing to see here. move along.
+    }
 }
 
 /// Cached services exist for lifetime of the app or until their cache is reset.
@@ -594,18 +613,18 @@ public class ResolverScopeCache: ResolverScope {
 
     public override init() {}
 
-    public final override func resolve<Service>(resolver: Resolver, registration: ResolverRegistration<Service>, args: Any?) -> Service? {
+    public override func resolve<Service>(registration: ResolverRegistration<Service>, resolver: Resolver, args: Any?) -> Service? {
         if let service = cachedServices[registration.cacheKey] as? Service {
             return service
         }
-        let service = registration.resolve(resolver: resolver, args: args)
+        let service = registration.instantiate(resolver: resolver, args: args)
         if let service = service {
             cachedServices[registration.cacheKey] = service
         }
         return service
     }
 
-    public final func reset() {
+    public override func reset() {
         cachedServices.removeAll()
     }
 
@@ -617,12 +636,12 @@ public final class ResolverScopeGraph: ResolverScope {
 
     public override init() {}
 
-    public final override func resolve<Service>(resolver: Resolver, registration: ResolverRegistration<Service>, args: Any?) -> Service? {
+    public override final func resolve<Service>(registration: ResolverRegistration<Service>, resolver: Resolver, args: Any?) -> Service? {
         if let service = graph[registration.cacheKey] as? Service {
             return service
         }
         resolutionDepth = resolutionDepth + 1
-        let service = registration.resolve(resolver: resolver, args: args)
+        let service = registration.instantiate(resolver: resolver, args: args)
         resolutionDepth = resolutionDepth - 1
         if resolutionDepth == 0 {
             graph.removeAll()
@@ -631,6 +650,8 @@ public final class ResolverScopeGraph: ResolverScope {
         }
         return service
     }
+    
+    public override final func reset() {}
 
     private var graph = [String : Any?](minimumCapacity: 32)
     private var resolutionDepth: Int = 0
@@ -641,18 +662,18 @@ public final class ResolverScopeShare: ResolverScope {
 
     public override init() {}
 
-    public final override func resolve<Service>(resolver: Resolver, registration: ResolverRegistration<Service>, args: Any?) -> Service? {
+    public override final func resolve<Service>(registration: ResolverRegistration<Service>, resolver: Resolver, args: Any?) -> Service? {
         if let service = cachedServices[registration.cacheKey]?.service as? Service {
             return service
         }
-        let service = registration.resolve(resolver: resolver, args: args)
+        let service = registration.instantiate(resolver: resolver, args: args)
         if let service = service, type(of: service as Any) is AnyClass {
             cachedServices[registration.cacheKey] = BoxWeak(service: service as AnyObject)
         }
         return service
     }
 
-    public final func reset() {
+    public override final func reset() {
         cachedServices.removeAll()
     }
 
@@ -663,15 +684,20 @@ public final class ResolverScopeShare: ResolverScope {
     private var cachedServices = [String : BoxWeak](minimumCapacity: 32)
 }
 
-/// Unique services are created and initialized each and every time they're resolved.
-public final class ResolverScopeUnique: ResolverScope {
+/// Unique services are created and initialized each and every time they're resolved. Performed by default implementation of ResolverScope.
+public typealias ResolverScopeUnique = ResolverScope
 
+/// Proxy to container's scope. Cache type depends on type supplied to container (default .cache)
+public final class ResolverScopeContainer: ResolverScope {
+    
     public override init() {}
-    public final override func resolve<Service>(resolver: Resolver, registration: ResolverRegistration<Service>, args: Any?) -> Service? {
-        return registration.resolve(resolver: resolver, args: args)
+    
+    public override final func resolve<Service>(registration: ResolverRegistration<Service>, resolver: Resolver, args: Any?) -> Service? {
+        return resolver.cache.resolve(registration: registration, resolver: resolver, args: args)
     }
-
+    
 }
+
 
 #if os(iOS)
 /// Storyboard Automatic Resolution Protocol

@@ -6,15 +6,15 @@ target 'OSKit' do
   use_frameworks!
 
   # Pods for OSKit
-  pod 'Resolver', '~> 1.4.0'
-  pod 'RxSwift', '~> 5.1.1'
-  pod 'RxSwiftExt', '~> 5.2.0'
-  pod 'RxCocoa', '~> 5.1.1'
-  pod 'RxDataSources', '~> 4.0.1'
+  pod 'Resolver', '~> 1.4'
+  pod 'RxSwift', '~> 5.1'
+  pod 'RxSwiftExt', '~> 5.2'
+  pod 'RxCocoa', '~> 5.1'
+  pod 'RxDataSources', '~> 4.0'
   pod 'RxBluetoothKit', :git => 'https://github.com/chamira-at/RxBluetoothKit.git', :branch => 'ios-15-support'
-  pod 'XCoordinator', '~> 2.0.7'
-  #pod 'XCoordinator/RxSwift', '2.0.7'
-  pod 'RxAlamofire', '5.1.0'
+  pod 'XCoordinator', '~> 2.0'
+  #pod 'XCoordinator/RxSwift', '2.0'
+  pod 'RxAlamofire', '5.1'
   # TODO: - 0 add SwiftLint
   
   target 'OSKitTests' do

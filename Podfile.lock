@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
   - Differentiator (4.0.1)
-  - Resolver (1.4.5)
+  - Resolver (1.5.0)
   - RxAlamofire (5.1.0):
     - RxAlamofire/Core (= 5.1.0)
   - RxAlamofire/Core (5.1.0):
@@ -32,14 +32,14 @@ PODS:
   - XCoordinator/Core (2.0.7)
 
 DEPENDENCIES:
-  - Resolver (~> 1.4.0)
-  - RxAlamofire (= 5.1.0)
+  - Resolver (~> 1.4)
+  - RxAlamofire (= 5.1)
   - RxBluetoothKit (from `https://github.com/chamira-at/RxBluetoothKit.git`, branch `ios-15-support`)
-  - RxCocoa (~> 5.1.1)
-  - RxDataSources (~> 4.0.1)
-  - RxSwift (~> 5.1.1)
-  - RxSwiftExt (~> 5.2.0)
-  - XCoordinator (~> 2.0.7)
+  - RxCocoa (~> 5.1)
+  - RxDataSources (~> 4.0)
+  - RxSwift (~> 5.1)
+  - RxSwiftExt (~> 5.2)
+  - XCoordinator (~> 2.0)
 
 SPEC REPOS:
   trunk:
@@ -67,7 +67,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Differentiator: 886080237d9f87f322641dedbc5be257061b0602
-  Resolver: 82d7e748325a47bb1d114811722dee688781115e
+  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
   RxAlamofire: a2d7621de4c23a0c6e7b476b504acc32838ee341
   RxBluetoothKit: dad22912b15b74a40df8f60057f218d4e851746d
   RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
@@ -77,6 +77,6 @@ SPEC CHECKSUMS:
   RxSwiftExt: 4ca80336f43c28f11a2825cdd2fc61dd6c044697
   XCoordinator: 9ee654fedef1ffede33d5c11677708a555c00542
 
-PODFILE CHECKSUM: a611c8a5779a822c661d47b263e2538df96319ed
+PODFILE CHECKSUM: 0c41096f50b7373063c08b6ab7d736884551cc3f
 
 COCOAPODS: 1.11.2
