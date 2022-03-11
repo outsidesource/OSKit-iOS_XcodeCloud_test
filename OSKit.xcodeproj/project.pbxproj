@@ -121,6 +121,10 @@
 		1B5FCC6027DA9FDD005C8887 /* AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5427DA9FDD005C8887 /* AsyncState.swift */; };
 		1B5FCC6127DA9FDD005C8887 /* Result+AsyncState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5527DA9FDD005C8887 /* Result+AsyncState.swift */; };
 		1B5FCC6727DBB151005C8887 /* IVISCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC6627DBB151005C8887 /* IVISCSViewController.swift */; };
+		1B5FCC6F27DBE10F005C8887 /* StateStore+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC6C27DBE10F005C8887 /* StateStore+Rx.swift */; };
+		1B5FCC7027DBE10F005C8887 /* ObservableType+StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC6D27DBE10F005C8887 /* ObservableType+StateStore.swift */; };
+		1B5FCC7127DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC6E27DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift */; };
+		1B5FCC7527DBE1C4005C8887 /* Interactor+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC7427DBE1C3005C8887 /* Interactor+Rx.swift */; };
 		1B7FEFC82354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */; };
 		1B921FCE257F360A0036B5DA /* AlamofireValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */; };
 		1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */; };
@@ -260,6 +264,10 @@
 		1B5FCC5427DA9FDD005C8887 /* AsyncState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncState.swift; sourceTree = "<group>"; };
 		1B5FCC5527DA9FDD005C8887 /* Result+AsyncState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Result+AsyncState.swift"; sourceTree = "<group>"; };
 		1B5FCC6627DBB151005C8887 /* IVISCSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IVISCSViewController.swift; sourceTree = "<group>"; };
+		1B5FCC6C27DBE10F005C8887 /* StateStore+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StateStore+Rx.swift"; sourceTree = "<group>"; };
+		1B5FCC6D27DBE10F005C8887 /* ObservableType+StateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+StateStore.swift"; sourceTree = "<group>"; };
+		1B5FCC6E27DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequenceType+StateStore.swift"; sourceTree = "<group>"; };
+		1B5FCC7427DBE1C3005C8887 /* Interactor+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interactor+Rx.swift"; sourceTree = "<group>"; };
 		1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StaticTransitionAnimation+OS.swift"; sourceTree = "<group>"; };
 		1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireValidationError.swift; sourceTree = "<group>"; };
 		1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkReachabilityManager+OS.swift"; sourceTree = "<group>"; };
@@ -550,9 +558,9 @@
 		1B5FCC6427DAA496005C8887 /* VISCS+Rx */ = {
 			isa = PBXGroup;
 			children = (
-				1B5750FC266FF8D9002AB349 /* TableViewAnimatedDataSource.swift */,
-				1B5750FB266FF8D9002AB349 /* IViewStateRepresentable+Rx.swift */,
-				1B5750F8266FF8D9002AB349 /* IViewState+RxDataSources.swift */,
+				1B5FCC7327DBE1BB005C8887 /* Interactor */,
+				1B5FCC6B27DBE10F005C8887 /* State */,
+				1B5FCC7227DBE113005C8887 /* StateStore */,
 			);
 			path = "VISCS+Rx";
 			sourceTree = "<group>";
@@ -563,6 +571,41 @@
 				1B5750F5266FF8D9002AB349 /* ObservableType+OS.swift */,
 			);
 			path = RxSwift;
+			sourceTree = "<group>";
+		};
+		1B5FCC6A27DBE0CF005C8887 /* VISCS+RxDataSources */ = {
+			isa = PBXGroup;
+			children = (
+				1B5750F8266FF8D9002AB349 /* IViewState+RxDataSources.swift */,
+				1B5750FC266FF8D9002AB349 /* TableViewAnimatedDataSource.swift */,
+			);
+			path = "VISCS+RxDataSources";
+			sourceTree = "<group>";
+		};
+		1B5FCC6B27DBE10F005C8887 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				1B5750FB266FF8D9002AB349 /* IViewStateRepresentable+Rx.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		1B5FCC7227DBE113005C8887 /* StateStore */ = {
+			isa = PBXGroup;
+			children = (
+				1B5FCC6D27DBE10F005C8887 /* ObservableType+StateStore.swift */,
+				1B5FCC6E27DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift */,
+				1B5FCC6C27DBE10F005C8887 /* StateStore+Rx.swift */,
+			);
+			path = StateStore;
+			sourceTree = "<group>";
+		};
+		1B5FCC7327DBE1BB005C8887 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				1B5FCC7427DBE1C3005C8887 /* Interactor+Rx.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		1B8B6987236093EA00531F38 /* XCoordinator */ = {
@@ -644,6 +687,7 @@
 				1B5750A7266FF87B002AB349 /* UserNotifications */,
 				1B5FCC4527DA9FC6005C8887 /* VISCS */,
 				1B5FCC6427DAA496005C8887 /* VISCS+Rx */,
+				1B5FCC6A27DBE0CF005C8887 /* VISCS+RxDataSources */,
 			);
 			path = OSKit;
 			sourceTree = "<group>";
@@ -855,6 +899,7 @@
 				1B575081266FF81E002AB349 /* OSTextField.swift in Sources */,
 				1B57507A266FF81E002AB349 /* OSProgressView.swift in Sources */,
 				1B574FED266FF4F1002AB349 /* ObservableType+OSLog.swift in Sources */,
+				1B5FCC7127DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift in Sources */,
 				1B5750DD266FF8B2002AB349 /* IViewStateRepresentable.swift in Sources */,
 				1B575030266FF70F002AB349 /* Characterist+CBCharacteristicWriteType.swift in Sources */,
 				1B57502C266FF70F002AB349 /* Service+OS.swift in Sources */,
@@ -864,6 +909,7 @@
 				1B574FA0266FF290002AB349 /* Data+OS.swift in Sources */,
 				1B5FCC5D27DA9FDD005C8887 /* IStateStoreSubscriber.swift in Sources */,
 				1B5750D4266FF8B2002AB349 /* ITableViewDelegate.swift in Sources */,
+				1B5FCC7027DBE10F005C8887 /* ObservableType+StateStore.swift in Sources */,
 				1B5FCC2427DA8FC4005C8887 /* IObjectBox.swift in Sources */,
 				1B57508A266FF81E002AB349 /* UINavigationController+OS.swift in Sources */,
 				1B5FCC5C27DA9FDD005C8887 /* IStateStore+IStateStoreProvider.swift in Sources */,
@@ -910,6 +956,7 @@
 				1B575088266FF81E002AB349 /* UIView+Inspectable.swift in Sources */,
 				1B922554257FDFC30036B5DA /* CLRegion+OS.swift in Sources */,
 				1B575050266FF79F002AB349 /* Comparable+OS.swift in Sources */,
+				1B5FCC7527DBE1C4005C8887 /* Interactor+Rx.swift in Sources */,
 				1B575106266FF8D9002AB349 /* TableViewAnimatedDataSource.swift in Sources */,
 				1B5FCC5E27DA9FDD005C8887 /* IInteractor.swift in Sources */,
 				1B57508B266FF81E002AB349 /* UIColor+OS.swift in Sources */,
@@ -947,6 +994,7 @@
 				1B574FBD266FF329002AB349 /* AVAudioPlayerNode+OS.swift in Sources */,
 				1B575033266FF70F002AB349 /* ServiceIdentifier+OS.swift in Sources */,
 				1B574F9D266FF290002AB349 /* UUID+OS.swift in Sources */,
+				1B5FCC6F27DBE10F005C8887 /* StateStore+Rx.swift in Sources */,
 				1B57504D266FF79F002AB349 /* OSError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

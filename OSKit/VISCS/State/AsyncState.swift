@@ -39,7 +39,7 @@ public enum AsyncState<ElementType, ErrorType: Error>: IState {
     /// - NOTE: Analagous to RxSwift onError
     case error(Error)
     
-    /// Returns true if the Async operation is executing
+    /// Returns true if the Async operation is busy - not in a completion or idle state
     public var isBusy: Bool {
         
         switch self {

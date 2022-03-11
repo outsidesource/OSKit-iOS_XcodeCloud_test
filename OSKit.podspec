@@ -198,7 +198,12 @@ Pod::Spec.new do |s|
     viscs_rx.dependency "OSKit/RxSwift"
     viscs_rx.dependency "RxSwiftExt", "~> 5.2.0"
     viscs_rx.dependency "RxCocoa", "~> 5.1.1"
-    viscs_rx.dependency "RxDataSources", "~> 4.0.1"
+  end
+  
+  s.subspec "VISCS+RxDataSources" do |viscs_rxdatasources|
+    viscs_rxdatasources.source_files = "OSKit/VISCS+RxDataSources/*.{h,m}", "OSKit/VISCS+RxDataSources/*.{swift}"
+    viscs_rxdatasources.dependency "OSKit/VISCS+Rx"
+    viscs_rxdatasources.dependency "RxDataSources", "~> 4.0.1"
   end
   
 #  s.subspec "RxVISER-RxReSwift" do |rxreswift|
