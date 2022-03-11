@@ -27,7 +27,7 @@ extension StateStore {
              
     }
   
-    var rx: Reactive<StateType> {
+    public var rx: Reactive<StateType> {
         let reactive = Reactive(self)
         self.addSubscriber(reactive, isRetained: true)
         return reactive
@@ -50,7 +50,7 @@ extension StateStore.Reactive: IStateStoreSubscriber {
     
 }
 
-extension StateStore.Reactive {
+public extension StateStore.Reactive {
     
     var state: Observable<StateType?> {
         return self.didUpdateBehaviorSubject
