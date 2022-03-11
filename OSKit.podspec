@@ -98,13 +98,13 @@ Pod::Spec.new do |s|
   s.subspec "Alamofire" do |alamofire|
     alamofire.source_files = "OSKit/Alamofire/**/*.{h,m}", "OSKit/Alamofire/**/*.{swift}"
     alamofire.dependency "OSKit/Core"
-    alamofire.dependency "Alamofire", "~> 4.9.1"
+    alamofire.dependency "Alamofire", "~> 4.9"
   end
   
   s.subspec "RxAlamofire" do |rxalamofire|
     rxalamofire.source_files = "OSKit/RxAlamofire/**/*.{h,m}", "OSKit/RxAlamofire/**/*.{swift}"
     rxalamofire.dependency "OSKit/Alamofire"
-    rxalamofire.dependency "RxAlamofire", "~> 5.1.0"
+    rxalamofire.dependency "RxAlamofire", "~> 5.1"
   end
   
   s.subspec "AVFoundation" do |avfoundation|
@@ -138,27 +138,27 @@ Pod::Spec.new do |s|
   s.subspec "Log+Rx" do |rxlog|
     rxlog.source_files = "OSKit/RxOSLog/**/*.{h,m}", "OSKit/RxOSLog/**/*.{swift}"
     rxlog.dependency "OSKit/Log"
-    rxlog.dependency "RxSwift", "~> 5.1.1"
-    rxlog.dependency "RxCocoa", "~> 5.1.1"
+    rxlog.dependency "RxSwift", "~> 5.1"
+    rxlog.dependency "RxCocoa", "~> 5.1"
   end
   
   # UPDATE paths to Resolver
   s.subspec "Build+Resolver" do |resolver|
     resolver.source_files = "OSKit/Resolver/**/*.{h,m}", "OSKit/Resolver/**/*.{swift}"
     resolver.dependency "OSKit/Build"
-    resolver.dependency "Resolver", "~> 1.4.0"
+    resolver.dependency "Resolver", "~> 1.4"
   end
   
   s.subspec "RxBluetoothKit" do |rxbluetoothkit|
     rxbluetoothkit.source_files = "OSKit/RxBluetoothKit/**/*.{h,m}", "OSKit/RxBluetoothKit/**/*.{swift}"
     rxbluetoothkit.dependency "OSKit/Core"
-    rxbluetoothkit.dependency "RxBluetoothKit", "~> 6.0.0"
+    rxbluetoothkit.dependency "RxBluetoothKit", "~> 6.0"
   end
   
   s.subspec "RxSwift" do |rxswift|
     rxswift.source_files = "OSKit/RxSwift/**/*.{h,m}", "OSKit/RxSwift/**/*.{swift}"
     rxswift.dependency "OSKit/Core"
-    rxswift.dependency "RxSwift", "~> 5.1.1"
+    rxswift.dependency "RxSwift", "~> 5.1"
   end
   
   s.subspec "UIKit" do |uikit|
@@ -172,8 +172,8 @@ Pod::Spec.new do |s|
   s.subspec "RxUIKit" do |rxuikit|
     rxuikit.source_files = "OSKit/RxUIKit/**/*.{h,m}", "OSKit/RxUIKit/**/*.{swift}"
     rxuikit.dependency "OSKit/UIKit"
-    rxuikit.dependency "RxSwift", "~> 5.1.1"
-    rxuikit.dependency "RxSwiftExt", "~> 5.2.0"
+    rxuikit.dependency "RxSwift", "~> 5.1"
+    rxuikit.dependency "RxSwiftExt", "~> 5.2"
   end
     
   s.subspec "UserNotifications" do |usernotifications|
@@ -193,14 +193,14 @@ Pod::Spec.new do |s|
     viscs_rx.source_files = "OSKit/VISCS+Rx/**/*.{h,m}", "OSKit/VISCS+Rx/**/*.{swift}"
     viscs_rx.dependency "OSKit/VISCS"
     viscs_rx.dependency "OSKit/RxSwift"
-    viscs_rx.dependency "RxSwiftExt", "~> 5.2.0"
-    viscs_rx.dependency "RxCocoa", "~> 5.1.1"
+    viscs_rx.dependency "RxSwiftExt", "~> 5.2"
+    viscs_rx.dependency "RxCocoa", "~> 5.1"
   end
   
   s.subspec "VISCS+RxDataSources" do |viscs_rxdatasources|
     viscs_rxdatasources.source_files = "OSKit/VISCS+RxDataSources/**/*.{h,m}", "OSKit/VISCS+RxDataSources/**/*.{swift}"
     viscs_rxdatasources.dependency "OSKit/VISCS+Rx"
-    viscs_rxdatasources.dependency "RxDataSources", "~> 4.0.1"
+    viscs_rxdatasources.dependency "RxDataSources", "~> 4.0"
   end
   
   # TODO ADD XCoordinator
