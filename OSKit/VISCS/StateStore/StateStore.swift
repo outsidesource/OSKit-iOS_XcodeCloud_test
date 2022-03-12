@@ -6,6 +6,9 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
+// TODO: - 0 CONSIDER the use of Actors
+// This would require targeting >=iOS13?
+
 /// A generic class implementing `IStateStore`
 public class StateStore<StateType: IState>: IStateStore {
     
