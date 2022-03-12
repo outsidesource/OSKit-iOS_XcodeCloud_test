@@ -17,15 +17,27 @@ public class StateStore<StateType: IState>: IStateStore {
     }
     
     private var _subscribers: [StateStoreSubscriberBox] = []
+    private var _state: SynchronizedConcurrentBarrier<StateType?> = .init(nil)
     
     /// Returns the current state
-    public private(set) var state: StateType?
+    public var state: StateType? {
+        return _state.value
+    }
     
     /// Updates state with reduced state and notifies subscribers of state updates
     /// - parameter reducer: function which receives current state and returns new state
     public func reduceState(reducer: (StateType?)->StateType?) {
-        state = reducer(state)
-        self._didUpdate(state)
+        
+        // Mutate state in SynchronizedConcurrentBarrier
+        _state.value {
+            $0 = reducer($0)
+        }
+        
+        // Notify subscribers on main thread
+        DispatchQueue.main.async {
+            self._didUpdate(self.state)
+        }
+        
     }
     
     /// Notifies each subscriber of state update
@@ -54,6 +66,30 @@ public class StateStore<StateType: IState>: IStateStore {
     
     private func _addSubscriberBox(_ box: StateStoreSubscriberBox) {
         _subscribers.append(box)
+    }
+    
+}
+
+// TODO: - 0 EXTRACT to /Dispatch?
+struct SynchronizedConcurrentBarrier<Value> {
+    
+    private var _value: Value
+    private let queue = DispatchQueue(label: "com.github.outsidesource.OSKit.SynchronizedBarrier", attributes: .concurrent)
+    
+    init(_ value: Value) {
+        self._value = value
+    }
+    
+    var value: Value {
+        return queue.sync {
+            return _value
+        }
+    }
+    
+    mutating func value<T>(execute task: (inout Value) throws -> T) rethrows -> T {
+        return try queue.sync(flags: .barrier) {
+            return try task(&_value)
+        }
     }
     
 }
