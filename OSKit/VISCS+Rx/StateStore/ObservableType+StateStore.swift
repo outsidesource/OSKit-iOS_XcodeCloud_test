@@ -1,6 +1,6 @@
 //
 //  ObservableType+StateStore.swift
-//  VISERLiteExample
+//  OSKit
 //
 //  Created by Brody Robertson on 3/4/22.
 //

@@ -1,6 +1,6 @@
 //
 //  PrimitiveSequenceType+StateStore.swift
-//  VISERLiteExample
+//  OSKit
 //
 //  Created by Brody Robertson on 3/11/22.
 //

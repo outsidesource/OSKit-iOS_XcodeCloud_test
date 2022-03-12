@@ -1,6 +1,6 @@
 //
 //  StateStore+Rx.swift
-//  VISERLiteExample
+//  OSKit
 //
 //  Created by Brody Robertson on 2/22/22.
 //
