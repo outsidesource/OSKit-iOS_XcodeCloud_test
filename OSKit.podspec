@@ -109,7 +109,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec "Core" do |core|
-    core.source_files = "OSKit/{Core, Dispatch, Foundation, Swift}/**/*.{h,m}", "OSKit/{Core, Dispatch, Foundation, Swift}/**/*.{swift}"
+    core.source_files = "OSKit/{Core,Dispatch,Foundation,Swift}/**/*.{h,m}", "OSKit/{Core,Dispatch,Foundation,Swift}/**/*.{swift}"
     core.framework = "Foundation"
   end
   
