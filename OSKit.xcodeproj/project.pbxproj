@@ -126,6 +126,7 @@
 		1B5FCC7127DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC6E27DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift */; };
 		1B5FCC7527DBE1C4005C8887 /* Interactor+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC7427DBE1C3005C8887 /* Interactor+Rx.swift */; };
 		1B5FCC7B27DBF822005C8887 /* UIColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC7A27DBF822005C8887 /* UIColorTheme.swift */; };
+		1B5FCC7E27DD922C005C8887 /* SynchronizedConurrentBarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC7D27DD922C005C8887 /* SynchronizedConurrentBarrier.swift */; };
 		1B7FEFC82354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */; };
 		1B921FCE257F360A0036B5DA /* AlamofireValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */; };
 		1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */; };
@@ -270,6 +271,7 @@
 		1B5FCC6E27DBE10F005C8887 /* PrimitiveSequenceType+StateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequenceType+StateStore.swift"; sourceTree = "<group>"; };
 		1B5FCC7427DBE1C3005C8887 /* Interactor+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Interactor+Rx.swift"; sourceTree = "<group>"; };
 		1B5FCC7A27DBF822005C8887 /* UIColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorTheme.swift; sourceTree = "<group>"; };
+		1B5FCC7D27DD922C005C8887 /* SynchronizedConurrentBarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynchronizedConurrentBarrier.swift; sourceTree = "<group>"; };
 		1B7FEFC32354CEE80079CAA3 /* StaticTransitionAnimation+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StaticTransitionAnimation+OS.swift"; sourceTree = "<group>"; };
 		1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireValidationError.swift; sourceTree = "<group>"; };
 		1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkReachabilityManager+OS.swift"; sourceTree = "<group>"; };
@@ -619,6 +621,14 @@
 			path = "UIKit+Excluded";
 			sourceTree = "<group>";
 		};
+		1B5FCC7C27DD920C005C8887 /* Dispatch */ = {
+			isa = PBXGroup;
+			children = (
+				1B5FCC7D27DD922C005C8887 /* SynchronizedConurrentBarrier.swift */,
+			);
+			path = Dispatch;
+			sourceTree = "<group>";
+		};
 		1B8B6987236093EA00531F38 /* XCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,12 +690,13 @@
 				1BBF985C245C981F00691D3F /* OSKit.podspec */,
 				1B921FCB257F360A0036B5DA /* Alamofire */,
 				1B574FBA266FF329002AB349 /* AVFoundation */,
+				1B574FD5266FF4A5002AB349 /* Build */,
+				1B574FF0266FF505002AB349 /* Build+Resolver */,
 				1B5FCC6227DAA3EB005C8887 /* Core */,
 				1B574FCA266FF3A7002AB349 /* CoreGraphics */,
 				1B8B698C2360948F00531F38 /* CoreLocation */,
+				1B5FCC7C27DD920C005C8887 /* Dispatch */,
 				1B574F86266FF290002AB349 /* Foundation */,
-				1B574FD5266FF4A5002AB349 /* Build */,
-				1B574FF0266FF505002AB349 /* Build+Resolver */,
 				1B574FE2266FF4C2002AB349 /* OSLog */,
 				1B921FDA257F37B40036B5DA /* RxAlamofire */,
 				1B575023266FF70F002AB349 /* RxBluetoothKit */,
@@ -973,6 +984,7 @@
 				1B5FCC5E27DA9FDD005C8887 /* IInteractor.swift in Sources */,
 				1B57508B266FF81E002AB349 /* UIColor+OS.swift in Sources */,
 				1B574FF2266FF505002AB349 /* Resolver+Build.swift in Sources */,
+				1B5FCC7E27DD922C005C8887 /* SynchronizedConurrentBarrier.swift in Sources */,
 				1B575102266FF8D9002AB349 /* IViewState+RxDataSources.swift in Sources */,
 				1B5FCC2327DA8FC4005C8887 /* AnyBox.swift in Sources */,
 				1B57504C266FF79F002AB349 /* Int8+OS.swift in Sources */,

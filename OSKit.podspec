@@ -89,11 +89,6 @@ Pod::Spec.new do |s|
   # s.source_files  = "OSKit", "OSKit/**/*.{h,m}", "OSKit/**/*.{swift}"
   s.exclude_files = "OSKit/Exclude"
   # s.public_header_files = "Classes/**/*.h"
-
-  s.subspec "Core" do |core|
-    core.source_files = "OSKit/{Core,Foundation,Swift}/**/*.{h,m}", "OSKit/{Core,Foundation,Swift}/**/*.{swift}"
-    core.framework = "Foundation"
-  end
   
   s.subspec "Alamofire" do |alamofire|
     alamofire.source_files = "OSKit/Alamofire/**/*.{h,m}", "OSKit/Alamofire/**/*.{swift}"
@@ -111,6 +106,11 @@ Pod::Spec.new do |s|
     avfoundation.source_files = "OSKit/AVFoundation/**/*.{h,m}", "OSKit/AVFoundation/**/*.{swift}"
     avfoundation.dependency "OSKit/Core"
     avfoundation.framework  = "AVFoundation"
+  end
+  
+  s.subspec "Core" do |core|
+    core.source_files = "OSKit/{Core, Dispatch, Foundation, Swift}/**/*.{h,m}", "OSKit/{Core, Dispatch, Foundation, Swift}/**/*.{swift}"
+    core.framework = "Foundation"
   end
   
   s.subspec "CoreGraphics" do |coregraphics|
