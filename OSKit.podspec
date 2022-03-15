@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OSKit"
-  s.version      = "1.0.0"
+  s.version      = "2.0.0"
   s.summary      = "Outside Source OSKit"
 
   # This description is used to generate tags and improve search results.
@@ -89,151 +89,116 @@ Pod::Spec.new do |s|
   # s.source_files  = "OSKit", "OSKit/**/*.{h,m}", "OSKit/**/*.{swift}"
   s.exclude_files = "OSKit/Exclude"
   # s.public_header_files = "Classes/**/*.h"
-
-  s.subspec "Core" do |core|
-    core.source_files = "OSKit/{Foundation,Swift}/*.{h,m}", "OSKit/{Foundation,Swift}/*.{swift}"
-    core.framework = "Foundation"
-  end
   
   s.subspec "Alamofire" do |alamofire|
-    alamofire.source_files = "OSKit/Alamofire/*.{h,m}", "OSKit/Alamofire/*.{swift}"
+    alamofire.source_files = "OSKit/Alamofire/**/*.{h,m}", "OSKit/Alamofire/**/*.{swift}"
     alamofire.dependency "OSKit/Core"
-    alamofire.dependency "Alamofire", "~> 4.9.1"
+    alamofire.dependency "Alamofire", "~> 4.9"
   end
   
   s.subspec "RxAlamofire" do |rxalamofire|
-    rxalamofire.source_files = "OSKit/RxAlamofire/*.{h,m}", "OSKit/RxAlamofire/*.{swift}"
+    rxalamofire.source_files = "OSKit/RxAlamofire/**/*.{h,m}", "OSKit/RxAlamofire/**/*.{swift}"
     rxalamofire.dependency "OSKit/Alamofire"
-    rxalamofire.dependency "RxAlamofire", "~> 5.1.0"
+    rxalamofire.dependency "RxAlamofire", "~> 5.1"
   end
   
   s.subspec "AVFoundation" do |avfoundation|
-    avfoundation.source_files = "OSKit/AVFoundation/*.{h,m}", "OSKit/AVFoundation/*.{swift}"
+    avfoundation.source_files = "OSKit/AVFoundation/**/*.{h,m}", "OSKit/AVFoundation/**/*.{swift}"
     avfoundation.dependency "OSKit/Core"
     avfoundation.framework  = "AVFoundation"
   end
   
+  s.subspec "Core" do |core|
+    core.source_files = "OSKit/{Core,Dispatch,Foundation,Swift}/**/*.{h,m}", "OSKit/{Core,Dispatch,Foundation,Swift}/**/*.{swift}"
+    core.framework = "Foundation"
+  end
+  
   s.subspec "CoreGraphics" do |coregraphics|
-    coregraphics.source_files = "OSKit/CoreGraphics/*.{h,m}", "OSKit/CoreGraphics/*.{swift}"
+    coregraphics.source_files = "OSKit/CoreGraphics/**/*.{h,m}", "OSKit/CoreGraphics/**/*.{swift}"
     coregraphics.dependency "OSKit/Core"
     coregraphics.framework  = "CoreGraphics"
   end
   
   s.subspec "CoreLocation" do |corelocation|
-    corelocation.source_files = "OSKit/CoreLocation/*.{h,m}", "OSKit/CoreLocation/*.{swift}"
+    corelocation.source_files = "OSKit/CoreLocation/**/*.{h,m}", "OSKit/CoreLocation/**/*.{swift}"
     corelocation.dependency "OSKit/Core"
     corelocation.framework  = "CoreLocation"
   end
   
   s.subspec "Build" do |build|
-    build.source_files = "OSKit/OSBuild/*.{h,m}", "OSKit/OSBuild/*.{swift}"
+    build.source_files = "OSKit/Build/**/*.{h,m}", "OSKit/Build/**/*.{swift}"
     build.dependency "OSKit/Core"
   end
   
+  s.subspec "Build+Resolver" do |build_resolver|
+    build_resolver.source_files = "OSKit/Build+Resolver/**/*.{h,m}", "OSKit/Build+Resolver/**/*.{swift}"
+    build_resolver.dependency "OSKit/Build"
+    build_resolver.dependency "Resolver", "~> 1.4"
+  end
+  
   s.subspec "Log" do |log|
-    log.source_files = "OSKit/OSLog/*.{h,m}", "OSKit/OSLog/*.{swift}"
+    log.source_files = "OSKit/OSLog/**/*.{h,m}", "OSKit/OSLog/**/*.{swift}"
     log.dependency "OSKit/Core"
   end
   
-  s.subspec "RxLog" do |rxlog|
-    rxlog.source_files = "OSKit/RxOSLog/*.{h,m}", "OSKit/RxOSLog/*.{swift}"
+  s.subspec "Log+Rx" do |rxlog|
+    rxlog.source_files = "OSKit/RxOSLog/**/*.{h,m}", "OSKit/RxOSLog/**/*.{swift}"
     rxlog.dependency "OSKit/Log"
-    rxlog.dependency "RxSwift", "~> 5.1.1"
-    rxlog.dependency "RxCocoa", "~> 5.1.1"
-  end
-  
-  s.subspec "Build-Resolver" do |resolver|
-    resolver.source_files = "OSKit/Resolver/*.{h,m}", "OSKit/Resolver/*.{swift}"
-    resolver.dependency "OSKit/Build"
-    resolver.dependency "Resolver", "~> 1.4.0"
+    rxlog.dependency "RxSwift", "~> 5.1"
+    rxlog.dependency "RxCocoa", "~> 5.1"
   end
   
   s.subspec "RxBluetoothKit" do |rxbluetoothkit|
-    rxbluetoothkit.source_files = "OSKit/RxBluetoothKit/*.{h,m}", "OSKit/RxBluetoothKit/*.{swift}"
+    rxbluetoothkit.source_files = "OSKit/RxBluetoothKit/**/*.{h,m}", "OSKit/RxBluetoothKit/**/*.{swift}"
     rxbluetoothkit.dependency "OSKit/Core"
-    rxbluetoothkit.dependency "RxBluetoothKit", "~> 6.0.0"
+    rxbluetoothkit.dependency "RxBluetoothKit", "~> 6.0"
+  end
+  
+  s.subspec "RxSwift" do |rxswift|
+    rxswift.source_files = "OSKit/RxSwift/**/*.{h,m}", "OSKit/RxSwift/**/*.{swift}"
+    rxswift.dependency "OSKit/Core"
+    rxswift.dependency "RxSwift", "~> 5.1"
   end
   
   s.subspec "UIKit" do |uikit|
-    uikit.source_files = "OSKit/UIKit/*.{h,m}", "OSKit/UIKit/*.{swift}"
+    uikit.source_files = "OSKit/UIKit/**/*.{h,m}", "OSKit/UIKit/**/*.{swift}"
     uikit.resources = "OSKit/UIKit/*.xib"
     uikit.dependency "OSKit/CoreGraphics"
     uikit.framework  = "UIKit"
   end
-  
-  s.subspec "RxUIKit" do |rxuikit|
-    rxuikit.source_files = "OSKit/RxUIKit/*.{h,m}", "OSKit/RxUIKit/*.{swift}"
-    rxuikit.dependency "OSKit/UIKit"
-    rxuikit.dependency "RxSwift", "~> 5.1.1"
-    rxuikit.dependency "RxSwiftExt", "~> 5.2.0"
-  end
-  
-  s.subspec "SwiftUI" do |swiftui|
-    swiftui.source_files = "OSKit/SwiftUI/*.{h,m}", "OSKit/SwiftUI/*.{swift}"
-    swiftui.framework  = "SwiftUI"
-  end
-  
+      
   s.subspec "UserNotifications" do |usernotifications|
-    usernotifications.source_files = "OSKit/UserNotifications/*.{h,m}", "OSKit/UserNotifications/*.{swift}"
+    usernotifications.source_files = "OSKit/UserNotifications/**/*.{h,m}", "OSKit/UserNotifications/**/*.{swift}"
     usernotifications.dependency "OSKit/Core"
     usernotifications.dependency "OSKit/UIKit"
-    usernotifications.framework = "UserNotifications", "CoreGraphics"
+    usernotifications.framework = "UserNotifications"
   end
   
-  s.subspec "VISER" do |viser|
-    viser.source_files = "OSKit/VISER/**/*.{h,m}", "OSKit/VISER/**/*.{swift}"
-    viser.dependency "OSKit/Core"
-    viser.dependency "OSKit/Build"
-    viser.dependency "OSKit/UIKit"
-    viser.dependency "OSKit/Build-Resolver"
+  s.subspec "VISCS" do |viscs|
+    viscs.source_files = "OSKit/VISCS/**/*.{h,m}", "OSKit/VISCS/**/*.{swift}"
+    viscs.dependency "OSKit/Core"
+    viscs.dependency "OSKit/UIKit"
   end
   
-  s.subspec "VISER-Combine" do |visercombine|
-    visercombine.source_files = "OSKit/VISER-Combine/*.{h,m}", "OSKit/VISER-Combine/*.{swift}"
-    visercombine.dependency "OSKit/VISER"
-    visercombine.framework = "Combine"
+  s.subspec "VISCS+Rx" do |viscs_rx|
+    viscs_rx.source_files = "OSKit/VISCS+Rx/**/*.{h,m}", "OSKit/VISCS+Rx/**/*.{swift}"
+    viscs_rx.dependency "OSKit/VISCS"
+    viscs_rx.dependency "OSKit/RxSwift"
+    viscs_rx.dependency "RxSwiftExt", "~> 5.2"
+    viscs_rx.dependency "RxCocoa", "~> 5.1"
   end
   
-  s.subspec "VISER-SwiftUI" do |viserswiftui|
-    viserswiftui.source_files = "OSKit/VISER-SwiftUI/*.{h,m}", "OSKit/VISER-SwiftUI/*.{swift}"
-    viserswiftui.dependency "OSKit/SwiftUI"
-    viserswiftui.dependency "OSKit/VISER-Combine"
+  s.subspec "VISCS+RxDataSources" do |viscs_rxdatasources|
+    viscs_rxdatasources.source_files = "OSKit/VISCS+RxDataSources/**/*.{h,m}", "OSKit/VISCS+RxDataSources/**/*.{swift}"
+    viscs_rxdatasources.dependency "OSKit/VISCS+Rx"
+    viscs_rxdatasources.dependency "RxDataSources", "~> 4.0"
   end
   
-  s.subspec "RxVISER" do |rxviser|
-    rxviser.source_files = "OSKit/RxVISER/*.{h,m}", "OSKit/RxVISER/*.{swift}"
-    rxviser.dependency "OSKit/VISER"
-    rxviser.dependency "RxSwift", "~> 5.1.1"
-    rxviser.dependency "RxSwiftExt", "~> 5.2.0"
-    rxviser.dependency "RxCocoa", "~> 5.1.1"
-    rxviser.dependency "RxDataSources", "~> 4.0.1"
+  s.subspec "XCoordinator" do |xcoordinator|
+    xcoordinator.source_files = "OSKit/XCoordinator/**/*.{h,m}", "OSKit/XCoordinator/**/*.{swift}"
+    xcoordinator.dependency "XCoordinator", "~> 2.0"
   end
-  
-  s.subspec "VISER-ReSwift" do |reswift|
-    reswift.source_files = "OSKit/ReSwift/*.{h,m}", "OSKit/ReSwift/*.{swift}"
-    reswift.dependency "OSKit/VISER"
-    reswift.dependency "ReSwift", "~> 6.0.0"
-  end
-  
-  s.subspec "RxVISER-RxReSwift" do |rxreswift|
-    rxreswift.source_files = "OSKit/RxReSwift/*.{h,m}", "OSKit/RxReSwift/*.{swift}"
-    rxreswift.dependency "OSKit/VISER-ReSwift"
-    rxreswift.dependency "OSKit/RxVISER"
-  end
-  
-  s.subspec "VISER-ReSwift-Combine" do |viserreswiftcombine|
-    viserreswiftcombine.source_files = "OSKit/ReSwift-Combine/*.{h,m}", "OSKit/ReSwift-Combine/*.{swift}"
-    viserreswiftcombine.dependency "OSKit/VISER-ReSwift"
-    viserreswiftcombine.dependency "OSKit/VISER-Combine"
-  end
-  
-  s.subspec "RxVISER-RxXCoordinator" do |xcoordinator|
-    xcoordinator.source_files = "OSKit/RxXCoordinator/*.{h,m}", "OSKit/RxXCoordinator/*.{swift}"
-    xcoordinator.dependency "OSKit/RxVISER"
-    xcoordinator.dependency "XCoordinator", "~> 2.0.7"
-    xcoordinator.dependency "XCoordinator/RxSwift", "~> 2.0.7"
-  end
-  
+    
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  A list of resources included with the Pod. These are copied into the

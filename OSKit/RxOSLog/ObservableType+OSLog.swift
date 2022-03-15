@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import RxCocoa
 
 // TODO: - 1 ADD function signature which accepts domains: [OSLog.Domain]
 
@@ -106,6 +105,9 @@ public extension PrimitiveSequenceType where Trait == CompletableTrait, Element 
     }
     
 }
+
+// TODO: - 0 EXTRACT to Log+RxCocoa
+import RxCocoa
 
 extension SharedSequenceConvertibleType {
     

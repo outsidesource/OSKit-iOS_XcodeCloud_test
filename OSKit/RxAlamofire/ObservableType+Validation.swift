@@ -18,7 +18,7 @@ public extension ObservableType where Self.Element == Alamofire.DataRequest {
         
     }
     
-    // TODO: 2 CONSIDER improving by injecting ValidateOptions
+    // TODO: - 2 CONSIDER improving by injecting ValidateOptions
     func validateResponseJSONData() -> Observable<Data> {
         
         return self

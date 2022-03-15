@@ -30,17 +30,17 @@ public extension UIScrollView {
     
     func insetsForKeyboardRect(_ keyboardRect: CGRect) -> UIEdgeInsets {
         
-        /// We must have a window reference to properly convert coordinates
+        // We must have a window reference to properly convert coordinates
         guard let window = self.window, let superview = self.superview else {
             return .zero
         }
         
-        /// Convert screen coordinates to window
-        /// If we use from: nil it uses screen base coordinate system which is the coordinate space of keyboardRect
+        // Convert screen coordinates to window
+        // If we use from: nil it uses screen base coordinate system which is the coordinate space of keyboardRect
         let windowRect = window.convert(keyboardRect, from: nil)
         
-        /// Convert window coordinates to view
-        /// If we use from: nil it uses window base coordinate system
+        // Convert window coordinates to view
+        // If we use from: nil it uses window base coordinate system
         let convertedKeyboardRect = superview.convert(windowRect, from: nil)
         
         let bottomDelta = self.bottom - convertedKeyboardRect.origin.y

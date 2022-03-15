@@ -30,7 +30,7 @@ public extension UIImage {
             return nil
         }
         
-        /// We have hard coded png sinc we are hard coding saving the data in png
+        // We have hard coded png sinc we are hard coding saving the data in png
         let url = cacheDirectory.appendingPathComponent("\(name).png")
         
         guard FileManager.default.fileExists(atPath: url.path) else {
