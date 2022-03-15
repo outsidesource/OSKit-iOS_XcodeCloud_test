@@ -6,7 +6,7 @@
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-/// Describes the state of an Async operation
+/// A type that describes the state of an Async operation
 public enum AsyncState<ElementType, ErrorType: Error>: IState {
     
     /// Case when Async operation has been deinit
