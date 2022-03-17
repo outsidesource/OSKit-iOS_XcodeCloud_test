@@ -12,10 +12,6 @@ extension StateStore {
     
     public class Reactive<StateType: IState> {
         
-        deinit {
-            OSLog.info(StateType.self)
-        }
-        
         let didUpdateBehaviorSubject: BehaviorSubject<StateType?>
         
         weak var base: StateStore<StateType>?

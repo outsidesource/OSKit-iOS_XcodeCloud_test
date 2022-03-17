@@ -12,10 +12,6 @@
 /// A generic class implementing `IStateStore`
 public class StateStore<StateType: IState>: IStateStore {
     
-    deinit {
-        OSLog.info(StateType.self)
-    }
-    
     private var _subscribers: [StateStoreSubscriberBox] = []
     private var _state: SynchronizedConcurrentBarrier<StateType?> = .init(nil)
     
