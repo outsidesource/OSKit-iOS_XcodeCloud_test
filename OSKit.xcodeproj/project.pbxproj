@@ -344,7 +344,7 @@
 			path = CoreGraphics;
 			sourceTree = "<group>";
 		};
-		1B574FD5266FF4A5002AB349 /* Build */ = {
+		1B574FD5266FF4A5002AB349 /* Build_ */ = {
 			isa = PBXGroup;
 			children = (
 				1B574FD6266FF4A5002AB349 /* IModuleAssembler.swift */,
@@ -352,7 +352,7 @@
 				1B574FD8266FF4A5002AB349 /* IModuleAssembly.swift */,
 				1B574FD9266FF4A5002AB349 /* ModuleAssemblerConfig.swift */,
 			);
-			path = Build;
+			path = Build_;
 			sourceTree = "<group>";
 		};
 		1B574FE2266FF4C2002AB349 /* OSLog */ = {
@@ -690,7 +690,7 @@
 				1BBF985C245C981F00691D3F /* OSKit.podspec */,
 				1B921FCB257F360A0036B5DA /* Alamofire */,
 				1B574FBA266FF329002AB349 /* AVFoundation */,
-				1B574FD5266FF4A5002AB349 /* Build */,
+				1B574FD5266FF4A5002AB349 /* Build_ */,
 				1B574FF0266FF505002AB349 /* Build+Resolver */,
 				1B5FCC6227DAA3EB005C8887 /* Core */,
 				1B574FCA266FF3A7002AB349 /* CoreGraphics */,

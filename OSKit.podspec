@@ -87,7 +87,7 @@ Pod::Spec.new do |s|
   #
 
   # s.source_files  = "OSKit", "OSKit/**/*.{h,m}", "OSKit/**/*.{swift}"
-  s.exclude_files = "OSKit/Exclude"
+  # s.exclude_files = "OSKit/Exclude"
   # s.public_header_files = "Classes/**/*.h"
   
   s.subspec "Alamofire" do |alamofire|
@@ -108,6 +108,18 @@ Pod::Spec.new do |s|
     avfoundation.framework  = "AVFoundation"
   end
   
+  s.subspec "Build" do |build|
+    # NOTE: - We use Build_ in order to avoid issues with common iOS .gitignore
+    build.source_files = "OSKit/Build_/**/*.{h,m}", "OSKit/Build_/**/*.{swift}"
+    build.dependency "OSKit/Core"
+  end
+  
+  s.subspec "Build+Resolver" do |build_resolver|
+    build_resolver.source_files = "OSKit/Build+Resolver/**/*.{h,m}", "OSKit/Build+Resolver/**/*.{swift}"
+    build_resolver.dependency "OSKit/Build"
+    build_resolver.dependency "Resolver", "~> 1.4"
+  end
+  
   s.subspec "Core" do |core|
     core.source_files = "OSKit/{Core,Dispatch,Foundation,Swift}/**/*.{h,m}", "OSKit/{Core,Dispatch,Foundation,Swift}/**/*.{swift}"
     core.framework = "Foundation"
@@ -123,17 +135,6 @@ Pod::Spec.new do |s|
     corelocation.source_files = "OSKit/CoreLocation/**/*.{h,m}", "OSKit/CoreLocation/**/*.{swift}"
     corelocation.dependency "OSKit/Core"
     corelocation.framework  = "CoreLocation"
-  end
-  
-  s.subspec "Build" do |build|
-    build.source_files = "OSKit/Build/**/*.{h,m}", "OSKit/Build/**/*.{swift}"
-    build.dependency "OSKit/Core"
-  end
-  
-  s.subspec "Build+Resolver" do |build_resolver|
-    build_resolver.source_files = "OSKit/Build+Resolver/**/*.{h,m}", "OSKit/Build+Resolver/**/*.{swift}"
-    build_resolver.dependency "OSKit/Build"
-    build_resolver.dependency "Resolver", "~> 1.4"
   end
   
   s.subspec "Log" do |log|
