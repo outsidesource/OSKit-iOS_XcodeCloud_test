@@ -137,6 +137,11 @@ Pod::Spec.new do |s|
     corelocation.framework  = "CoreLocation"
   end
   
+  s.subspec "ExternalAccessory+Rx" do |externalaccessoryrx|
+    externalaccessoryrx.source_files = "OSKit/CoreLocation/**/*.{h,m}", "OSKit/CoreLocation/**/*.{swift}"
+    externalaccessoryrx.framework  = "ExternalAccessory"
+  end
+  
   s.subspec "Log" do |log|
     log.source_files = "OSKit/OSLog/**/*.{h,m}", "OSKit/OSLog/**/*.{swift}"
     log.dependency "OSKit/Core"
