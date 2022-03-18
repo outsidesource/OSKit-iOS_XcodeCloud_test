@@ -132,6 +132,7 @@
 		1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */; };
 		1B921FDC257F37B40036B5DA /* ObservableType+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B921FDB257F37B40036B5DA /* ObservableType+Validation.swift */; };
 		1B922554257FDFC30036B5DA /* CLRegion+OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B08D3812319ACA400B6F0C0 /* CLRegion+OS.swift */; };
+		1B97C46E27E4C0D2002EC03D /* EAAccessoryManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B97C46D27E4C0D2002EC03D /* EAAccessoryManager+Rx.swift */; };
 		1B9B87E021534DC4001075C9 /* OSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9B87D621534DC4001075C9 /* OSKit.framework */; };
 		1B9B87E521534DC4001075C9 /* OSKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B87E421534DC4001075C9 /* OSKitTests.swift */; };
 		1B9B87E721534DC4001075C9 /* OSKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9B87D921534DC4001075C9 /* OSKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -276,6 +277,7 @@
 		1B921FCC257F360A0036B5DA /* AlamofireValidationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlamofireValidationError.swift; sourceTree = "<group>"; };
 		1B921FCD257F360A0036B5DA /* NetworkReachabilityManager+OS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NetworkReachabilityManager+OS.swift"; sourceTree = "<group>"; };
 		1B921FDB257F37B40036B5DA /* ObservableType+Validation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObservableType+Validation.swift"; sourceTree = "<group>"; };
+		1B97C46D27E4C0D2002EC03D /* EAAccessoryManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EAAccessoryManager+Rx.swift"; sourceTree = "<group>"; };
 		1B9B87D621534DC4001075C9 /* OSKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OSKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9B87D921534DC4001075C9 /* OSKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSKit.h; sourceTree = "<group>"; };
 		1B9B87DA21534DC4001075C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -662,6 +664,14 @@
 			path = RxAlamofire;
 			sourceTree = "<group>";
 		};
+		1B97C46C27E4BFF6002EC03D /* ExternalAccessory+Rx */ = {
+			isa = PBXGroup;
+			children = (
+				1B97C46D27E4C0D2002EC03D /* EAAccessoryManager+Rx.swift */,
+			);
+			path = "ExternalAccessory+Rx";
+			sourceTree = "<group>";
+		};
 		1B9B87CC21534DC4001075C9 = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +706,7 @@
 				1B574FCA266FF3A7002AB349 /* CoreGraphics */,
 				1B8B698C2360948F00531F38 /* CoreLocation */,
 				1B5FCC7C27DD920C005C8887 /* Dispatch */,
+				1B97C46C27E4BFF6002EC03D /* ExternalAccessory+Rx */,
 				1B574F86266FF290002AB349 /* Foundation */,
 				1B574FE2266FF4C2002AB349 /* OSLog */,
 				1B921FDA257F37B40036B5DA /* RxAlamofire */,
@@ -996,6 +1007,7 @@
 				1B57507C266FF81E002AB349 /* UIStackView+OS.swift in Sources */,
 				1B574FA7266FF290002AB349 /* OSVersion.swift in Sources */,
 				1B57509F266FF85B002AB349 /* OSViewController+Rx.swift in Sources */,
+				1B97C46E27E4C0D2002EC03D /* EAAccessoryManager+Rx.swift in Sources */,
 				1B574FAC266FF290002AB349 /* FileManager+OS.swift in Sources */,
 				1B5750DE266FF8B2002AB349 /* IState.swift in Sources */,
 				1B574FDA266FF4A5002AB349 /* IModuleAssembler.swift in Sources */,
