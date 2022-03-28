@@ -14,9 +14,11 @@ open class Interactor<StateType: IState>: IInteractor {
     public init(state: StateType? = nil) {
 
         reduceState { _ in
+            /// Reduce state to injected state
             return state
         }
 
     }
     
 }
+
