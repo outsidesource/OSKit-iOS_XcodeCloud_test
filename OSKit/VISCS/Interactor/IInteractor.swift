@@ -7,4 +7,4 @@
 //
 
 /// A type that composes and exposes an `IStateStore`
-public protocol IInteractor: AnyObject, IStateStoreProvider, IStateStore { }
+public protocol IInteractor: AnyObject, IStateStoreLocator, IStateStore { }

@@ -1,12 +1,12 @@
 //
-//  IStateStore+IStateStoreProvider.swift
+//  IStateStore+IStateStoreLocator.swift
 //  OSKit
 //
 //  Created by Brody Robertson
 //  Copyright © 2020 Outside Source. All rights reserved.
 //
 
-public extension IStateStore where Self: IStateStoreProvider, StateStoreType.StateType == StateType {
+public extension IStateStore where Self: IStateStoreLocator, StateStoreType.StateType == StateType {
     
     var state: StateType? {
         stateStore.state

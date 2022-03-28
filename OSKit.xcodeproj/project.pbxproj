@@ -111,10 +111,10 @@
 		1B5FCC5627DA9FDD005C8887 /* VISCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4727DA9FDC005C8887 /* VISCSViewController.swift */; };
 		1B5FCC5727DA9FDD005C8887 /* StateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4927DA9FDC005C8887 /* StateStore.swift */; };
 		1B5FCC5827DA9FDD005C8887 /* IStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4A27DA9FDC005C8887 /* IStateStore.swift */; };
-		1B5FCC5927DA9FDD005C8887 /* IStateStoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4B27DA9FDC005C8887 /* IStateStoreProvider.swift */; };
+		1B5FCC5927DA9FDD005C8887 /* IStateStoreLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4B27DA9FDC005C8887 /* IStateStoreLocator.swift */; };
 		1B5FCC5A27DA9FDD005C8887 /* AnyStateStoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4C27DA9FDC005C8887 /* AnyStateStoreSubscriber.swift */; };
 		1B5FCC5B27DA9FDD005C8887 /* StateStore+IStateStoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4D27DA9FDC005C8887 /* StateStore+IStateStoreSubscriber.swift */; };
-		1B5FCC5C27DA9FDD005C8887 /* IStateStore+IStateStoreProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4E27DA9FDC005C8887 /* IStateStore+IStateStoreProvider.swift */; };
+		1B5FCC5C27DA9FDD005C8887 /* IStateStore+IStateStoreLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4E27DA9FDC005C8887 /* IStateStore+IStateStoreLocator.swift */; };
 		1B5FCC5D27DA9FDD005C8887 /* IStateStoreSubscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC4F27DA9FDC005C8887 /* IStateStoreSubscriber.swift */; };
 		1B5FCC5E27DA9FDD005C8887 /* IInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5127DA9FDD005C8887 /* IInteractor.swift */; };
 		1B5FCC5F27DA9FDD005C8887 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5FCC5227DA9FDD005C8887 /* Interactor.swift */; };
@@ -257,10 +257,10 @@
 		1B5FCC4727DA9FDC005C8887 /* VISCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VISCSViewController.swift; sourceTree = "<group>"; };
 		1B5FCC4927DA9FDC005C8887 /* StateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateStore.swift; sourceTree = "<group>"; };
 		1B5FCC4A27DA9FDC005C8887 /* IStateStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStateStore.swift; sourceTree = "<group>"; };
-		1B5FCC4B27DA9FDC005C8887 /* IStateStoreProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStateStoreProvider.swift; sourceTree = "<group>"; };
+		1B5FCC4B27DA9FDC005C8887 /* IStateStoreLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStateStoreLocator.swift; sourceTree = "<group>"; };
 		1B5FCC4C27DA9FDC005C8887 /* AnyStateStoreSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyStateStoreSubscriber.swift; sourceTree = "<group>"; };
 		1B5FCC4D27DA9FDC005C8887 /* StateStore+IStateStoreSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StateStore+IStateStoreSubscriber.swift"; sourceTree = "<group>"; };
-		1B5FCC4E27DA9FDC005C8887 /* IStateStore+IStateStoreProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IStateStore+IStateStoreProvider.swift"; sourceTree = "<group>"; };
+		1B5FCC4E27DA9FDC005C8887 /* IStateStore+IStateStoreLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IStateStore+IStateStoreLocator.swift"; sourceTree = "<group>"; };
 		1B5FCC4F27DA9FDC005C8887 /* IStateStoreSubscriber.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IStateStoreSubscriber.swift; sourceTree = "<group>"; };
 		1B5FCC5127DA9FDD005C8887 /* IInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IInteractor.swift; sourceTree = "<group>"; };
 		1B5FCC5227DA9FDD005C8887 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
@@ -499,8 +499,8 @@
 			children = (
 				1B5FCC4C27DA9FDC005C8887 /* AnyStateStoreSubscriber.swift */,
 				1B5FCC4A27DA9FDC005C8887 /* IStateStore.swift */,
-				1B5FCC4E27DA9FDC005C8887 /* IStateStore+IStateStoreProvider.swift */,
-				1B5FCC4B27DA9FDC005C8887 /* IStateStoreProvider.swift */,
+				1B5FCC4E27DA9FDC005C8887 /* IStateStore+IStateStoreLocator.swift */,
+				1B5FCC4B27DA9FDC005C8887 /* IStateStoreLocator.swift */,
 				1B5FCC4F27DA9FDC005C8887 /* IStateStoreSubscriber.swift */,
 				1B5FCC4927DA9FDC005C8887 /* StateStore.swift */,
 				1B5FCC4D27DA9FDC005C8887 /* StateStore+IStateStoreSubscriber.swift */,
@@ -946,7 +946,7 @@
 				1B5FCC7027DBE10F005C8887 /* ObservableType+StateStore.swift in Sources */,
 				1B5FCC2427DA8FC4005C8887 /* IObjectBox.swift in Sources */,
 				1B57508A266FF81E002AB349 /* UINavigationController+OS.swift in Sources */,
-				1B5FCC5C27DA9FDD005C8887 /* IStateStore+IStateStoreProvider.swift in Sources */,
+				1B5FCC5C27DA9FDD005C8887 /* IStateStore+IStateStoreLocator.swift in Sources */,
 				1B575032266FF70F002AB349 /* Characteristic+OS.swift in Sources */,
 				1B574FDD266FF4A5002AB349 /* ModuleAssemblerConfig.swift in Sources */,
 				1B921FCF257F360A0036B5DA /* NetworkReachabilityManager+OS.swift in Sources */,
@@ -1026,7 +1026,7 @@
 				1B574FE7266FF4C2002AB349 /* ILogger.swift in Sources */,
 				1B575086266FF81E002AB349 /* OSLabel.swift in Sources */,
 				1B574FBE266FF329002AB349 /* AVAudioFile+OS.swift in Sources */,
-				1B5FCC5927DA9FDD005C8887 /* IStateStoreProvider.swift in Sources */,
+				1B5FCC5927DA9FDD005C8887 /* IStateStoreLocator.swift in Sources */,
 				1B574FBD266FF329002AB349 /* AVAudioPlayerNode+OS.swift in Sources */,
 				1B575033266FF70F002AB349 /* ServiceIdentifier+OS.swift in Sources */,
 				1B574F9D266FF290002AB349 /* UUID+OS.swift in Sources */,
