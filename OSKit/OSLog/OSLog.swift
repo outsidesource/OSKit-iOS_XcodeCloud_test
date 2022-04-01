@@ -209,14 +209,6 @@ public extension OSLog.Domain {
     static let debug = OSLog.Domain("debug")
     static let production = OSLog.Domain("production")
     
-    // TODO: - 2 CONSIDER extraction to OSKit/VISCS
-    // VISCS Module Components
-    static let stateStore = OSLog.Domain("stateStore")
-    static let view = OSLog.Domain("view")
-    static let interactor = OSLog.Domain("interactor")
-    static let service = OSLog.Domain("service")
-    static let coordinator = OSLog.Domain("coordinator")
-    
 }
 
 public extension OSLog {

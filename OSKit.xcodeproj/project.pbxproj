@@ -136,6 +136,7 @@
 		1B9B87E021534DC4001075C9 /* OSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B9B87D621534DC4001075C9 /* OSKit.framework */; };
 		1B9B87E521534DC4001075C9 /* OSKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B87E421534DC4001075C9 /* OSKitTests.swift */; };
 		1B9B87E721534DC4001075C9 /* OSKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B9B87D921534DC4001075C9 /* OSKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1BEA8B7E27F744E8004F90F3 /* OSLog+VISCS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BEA8B7D27F744E8004F90F3 /* OSLog+VISCS.swift */; };
 		3527246741CEFD42DF217386 /* Pods_OSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F402620E8790D105C163638 /* Pods_OSKit.framework */; };
 		CDDBE44B19771A21A17AC2E1 /* Pods_OSKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CAAED2470286E48FA60E7C7 /* Pods_OSKitTests.framework */; };
 /* End PBXBuildFile section */
@@ -285,6 +286,7 @@
 		1B9B87E421534DC4001075C9 /* OSKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSKitTests.swift; sourceTree = "<group>"; };
 		1B9B87E621534DC4001075C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BBF985C245C981F00691D3F /* OSKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = OSKit.podspec; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1BEA8B7D27F744E8004F90F3 /* OSLog+VISCS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OSLog+VISCS.swift"; sourceTree = "<group>"; };
 		69FAA41C2E07877578AD58C6 /* Pods-OSKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSKitTests/Pods-OSKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		8A3B134DF6835D9D7FBB39CE /* Pods-OSKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSKitTests/Pods-OSKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D5EAEC8670C968572E4B4CA /* Pods-OSKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSKit/Pods-OSKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -709,6 +711,7 @@
 				1B97C46C27E4BFF6002EC03D /* ExternalAccessory+Rx */,
 				1B574F86266FF290002AB349 /* Foundation */,
 				1B574FE2266FF4C2002AB349 /* OSLog */,
+				1BEA8B7C27F744B1004F90F3 /* OSLog+VISCS */,
 				1B921FDA257F37B40036B5DA /* RxAlamofire */,
 				1B575023266FF70F002AB349 /* RxBluetoothKit */,
 				1B574FEB266FF4F1002AB349 /* RxOSLog */,
@@ -732,6 +735,14 @@
 				1B9B87E621534DC4001075C9 /* Info.plist */,
 			);
 			path = OSKitTests;
+			sourceTree = "<group>";
+		};
+		1BEA8B7C27F744B1004F90F3 /* OSLog+VISCS */ = {
+			isa = PBXGroup;
+			children = (
+				1BEA8B7D27F744E8004F90F3 /* OSLog+VISCS.swift */,
+			);
+			path = "OSLog+VISCS";
 			sourceTree = "<group>";
 		};
 		D1B50EEA3D5C4BEC8D9CE5C9 /* Pods */ = {
@@ -954,6 +965,7 @@
 				1B574F9B266FF290002AB349 /* IStringIdentifiable.swift in Sources */,
 				1B5750AB266FF87B002AB349 /* UNNotificationSound+OS.swift in Sources */,
 				1B574FA5266FF290002AB349 /* OSLocaleString.swift in Sources */,
+				1BEA8B7E27F744E8004F90F3 /* OSLog+VISCS.swift in Sources */,
 				1B575090266FF81E002AB349 /* UIViewController+OS.swift in Sources */,
 				1B574FA3266FF290002AB349 /* OSColor.swift in Sources */,
 				1B5FCC2227DA8FC4005C8887 /* WeakBox.swift in Sources */,

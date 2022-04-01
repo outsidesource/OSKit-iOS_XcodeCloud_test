@@ -156,6 +156,11 @@ Pod::Spec.new do |s|
     rxlog.dependency "RxCocoa", "~> 5.1"
   end
   
+  s.subspec "Log+VISCS" do |rxlog|
+    rxlog.source_files = "OSKit/OSLog+VISCS/**/*.{h,m}", "OSKit/OSLog+VISCS/**/*.{swift}"
+    rxlog.dependency "OSKit/Log"
+  end
+  
   s.subspec "RxBluetoothKit" do |rxbluetoothkit|
     rxbluetoothkit.source_files = "OSKit/RxBluetoothKit/**/*.{h,m}", "OSKit/RxBluetoothKit/**/*.{swift}"
     rxbluetoothkit.dependency "OSKit/Core"
