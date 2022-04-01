@@ -188,16 +188,15 @@ public class OSLog {
 
 public extension OSLog {
 
-    struct Domain: Equatable {
-    
-        public let name: String
+    struct Domain: ExpressibleByStringLiteral, Equatable {
         
-        public init(_ name: String) {
-            self.name = name
+        public let rawValue: String
+        public init(stringLiteral: String) {
+            self.rawValue = stringLiteral
         }
         
     }
-
+    
 }
 
 public extension OSLog.Domain {
