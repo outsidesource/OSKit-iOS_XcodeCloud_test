@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "OSKit"
-  s.version      = "2.0.0"
+  s.version      = "2.0.1"
   s.summary      = "Outside Source OSKit"
 
   # This description is used to generate tags and improve search results.
@@ -111,7 +111,6 @@ Pod::Spec.new do |s|
   s.subspec "Build" do |build|
     # NOTE: - We use Build_ in order to avoid issues with common iOS .gitignore
     build.source_files = "OSKit/Build_/**/*.{h,m}", "OSKit/Build_/**/*.{swift}"
-    build.dependency "OSKit/Core"
   end
   
   s.subspec "Build+Resolver" do |build_resolver|
