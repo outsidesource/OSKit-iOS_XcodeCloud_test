@@ -28,6 +28,10 @@ public struct OSColor {
         self.alpha = alpha
     }
     
+    public func test() {
+        print("test called")
+    }
+    
 }
 
 extension OSColor: Codable { }
