@@ -43,4 +43,6 @@ extension OSColor: CustomStringConvertible {
         return name?.description ?? ""
     }
     
+    public func test2() {}
+    
 }
